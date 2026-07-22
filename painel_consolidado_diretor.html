@@ -249,7 +249,7 @@ function buildTabela(){
       if(!realPorAtv[l.atv]) realPorAtv[l.atv]=0;
       realPorAtv[l.atv]+=l.valor;
     });
-    Object.entries(atvsMap).forEach(([atv,atvOP])=>{
+    Object.entries(atvsMap).sort((a,b)=>a[0].localeCompare(b[0],'pt-BR')).forEach(([atv,atvOP])=>{
       const atvRP=mesSel===-1?(realPorAtv[atv]||0):real.filter(l=>l.atv===atv&&l.mes===mesSel+1).reduce((s,l)=>s+l.valor,0);
       const atvS=atvOP-atvRP,atvP=atvOP>0?(atvRP/atvOP*100):0;
       h+=`<tr class="tr-sub" data-pai="ca${ai}">

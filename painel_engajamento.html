@@ -280,7 +280,7 @@ function buildAtiv(){
   });
   const tb=document.getElementById('tb-ativ');
   let html='',tOP=0,tRP=0,ai=0;
-  Object.entries(atvsMap).forEach(([atv,rubs])=>{
+  Object.entries(atvsMap).sort((a,b)=>a[0].localeCompare(b[0],'pt-BR')).forEach(([atv,rubs])=>{
     ai++;
     let aOP=0,aRP=0;
     Object.entries(rubs).forEach(([rub,ri])=>{
@@ -296,7 +296,7 @@ function buildAtiv(){
       <td>${miniB(aP>900?100:aP)}</td><td>${badge(aP>900?100:aP)}</td>
     </tr>`;
     let ri2=0;
-    Object.entries(rubs).forEach(([rub,ri])=>{
+    Object.entries(rubs).sort((a,b)=>a[0].localeCompare(b[0],'pt-BR')).forEach(([rub,ri])=>{
       ri2++;
       const rid=`ra${ai}-${ri2}`;
       const lancs=realMap[atv+'|'+rub]||[];
@@ -338,6 +338,7 @@ function buildRub(){
   });
   const rubsOrdem=[...new Set(ORC.map(r=>r[1]))];
   REAL.forEach(l=>{ if(l.rub && !rubsOrdem.includes(l.rub)) rubsOrdem.push(l.rub); });
+  rubsOrdem.sort((a,b)=>a.localeCompare(b,'pt-BR'));
   const tb=document.getElementById('tb-rub');
   let html='',tOP=0,tRP=0,ri=0;
   rubsOrdem.forEach(rub=>{
