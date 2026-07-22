@@ -35,14 +35,20 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .barra-bg{background:rgba(255,255,255,.1);border-radius:3px;height:3px;margin-top:8px;overflow:hidden}
 .barra-fill{height:3px;border-radius:3px}
 
-.filtro-wrap{padding:1.25rem 2rem .75rem;background:var(--br);border-bottom:1px solid var(--bo)}
+.filtro-wrap{padding:1.25rem 2rem 1rem;background:var(--br);border-bottom:1px solid var(--bo)}
 .filtro-label{font-size:10px;font-weight:600;color:var(--ct);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
-.meses-row{display:flex;gap:4px;flex-wrap:wrap}
+.meses-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
 .mes-btn{font-family:'Poppins',sans-serif;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;cursor:pointer;border:1px solid var(--bo);background:var(--br);color:var(--ct);transition:all .15s}
-.mes-btn:hover:not(.futuro):not(.ativo){border-color:var(--vd);color:var(--vd)}
+.mes-btn:hover:not(.ativo){border-color:var(--vd);color:var(--vd)}
 .mes-btn.ativo{background:var(--vd);color:#fff;border-color:var(--vd)}
 .mes-btn.sem-dados{color:#A8ABB3;font-style:italic}
 .mes-btn.sem-dados.ativo{color:#fff;font-style:normal}
+
+.range-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;border-top:1px dashed var(--bo)}
+.range-label{font-size:12px;color:var(--ct);font-weight:500}
+.range-select{font-family:'Poppins',sans-serif;font-size:12px;padding:5px 10px;border-radius:6px;border:1px solid var(--bo);background:var(--br);color:var(--tx);cursor:pointer}
+.range-btn{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;padding:5px 14px;border-radius:6px;border:1px solid var(--vd);background:var(--vd);color:#fff;cursor:pointer;transition:opacity .15s}
+.range-btn:hover{opacity:.85}
 
 .abas-wrap{background:var(--br);padding:0 2rem;border-bottom:1px solid var(--bo)}
 .abas{display:flex}
@@ -114,7 +120,7 @@ thead th:first-child{text-align:left;padding-left:16px}
   </div>
   <div class="topo-dir">
     <div class="logo-ppa">PPA</div>
-    <p id="txt-periodo">Acumulado Jan–Jun · 2026</p>
+    <p id="txt-periodo">—</p>
   </div>
 </div>
 
@@ -148,8 +154,16 @@ thead th:first-child{text-align:left;padding-left:16px}
 </div>
 
 <div class="filtro-wrap">
-  <div class="filtro-label">Período de visualização</div>
+  <div class="filtro-label">Consultar por mês</div>
   <div class="meses-row" id="meses-row"></div>
+  <div class="filtro-label">Ou consultar por intervalo de meses</div>
+  <div class="range-row">
+    <span class="range-label">De</span>
+    <select class="range-select" id="sel-de"></select>
+    <span class="range-label">até</span>
+    <select class="range-select" id="sel-ate"></select>
+    <button class="range-btn" onclick="aplicarIntervalo()">Aplicar</button>
+  </div>
 </div>
 
 <div class="abas-wrap">
@@ -196,28 +210,34 @@ thead th:first-child{text-align:left;padding-left:16px}
   </div>
   <div class="nota">
     <strong>Associação PPA</strong> · Gerência Administrativa e Financeira · Dados: API Ongsys (coleta automatizada)<br>
-    Realizado: Janeiro a Junho/2026 · Orçamento institucional aprovado · Gerado em julho/2026
+    Orçamento institucional aprovado 2026 · Atualizado em julho/2026
   </div>
 </div>
 
 <script>
 const ORC=[["Eventos de parceiros no Sudeste", "3.4. Passagens Rodoviárias", [0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0]], ["Eventos de parceiros no Sudeste", "3.9. Taxis ou Aplicativos de Transporte", [0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0]], ["Eventos de parceiros no Sudeste", "3.12. Alimentação", [0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0]], ["Eventos de parceiros no Sudeste", "3.6. Seguro Viagem", [0, 0, 0, 0, 0, 0, 0, 0, 100.0, 0, 0, 0]], ["Eventos de parceiros no Sudeste", "3.3. Passagens Aéreas Nacionais", [0, 0, 0, 0, 0, 0, 0, 0, 1000.0, 0, 0, 0]], ["Eventos de parceiros no Sudeste", "3.11. Hospedagem", [0, 0, 0, 0, 0, 0, 0, 0, 800.0, 0, 0, 0]], ["Eventos de parceiros no Sudeste", "3.13. Ajuda de Custo", [0, 0, 0, 0, 0, 0, 0, 0, 1000.0, 0, 0, 0]], ["Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "3.3. Passagens Aéreas Nacionais", [0, 0, 0, 0, 2000.0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "3.6. Seguro Viagem", [0, 0, 0, 0, 100.0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "3.13. Ajuda de Custo", [0, 0, 0, 0, 1200.0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "3.11. Hospedagem", [0, 0, 0, 0, 1200.0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.3. Passagens Aéreas Nacionais", [0, 0, 2000.0, 0, 0, 0, 0, 0, 0, 4000.0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.4. Passagens Rodoviárias", [0, 0, 200.0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.9. Taxis ou Aplicativos de Transporte", [0, 0, 560.0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.1. Combustível", [0, 0, 150.0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.10. Estacionamento", [0, 0, 50.0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.6. Seguro Viagem", [0, 0, 100.0, 0, 0, 0, 0, 0, 0, 300.0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.13. Ajuda de Custo", [0, 0, 800.0, 0, 0, 0, 0, 0, 0, 1400.0, 0, 0]], ["Eventos autorais da PPA - presencial", "4.4. Gráfica e Impressão", [0, 0, 400.0, 0, 0, 0, 0, 0, 0, 700.0, 0, 0]], ["Eventos autorais da PPA - presencial", "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", [0, 0, 500.0, 0, 0, 0, 0, 0, 0, 1500.0, 0, 0]], ["Eventos autorais da PPA - presencial", "2.9. Materiais de Escritório", [0, 0, 200.0, 0, 0, 0, 0, 0, 0, 300.0, 0, 0]], ["Eventos autorais da PPA - presencial", "3.12. Alimentação", [0, 0, 4000.0, 0, 0, 0, 0, 0, 0, 8000.0, 0, 0]], ["Eventos autorais da PPA - presencial", "5.1. Contratação de Agências de Comunicação", [0, 0, 2000.0, 0, 0, 0, 0, 0, 0, 2000.0, 0, 0]], ["Eventos autorais da PPA - online", "4.2. Produção de Materiais Digitais (Infográficos, Vídeos)", [0, 0, 0, 0, 0, 500.0, 0, 0, 0, 0, 500.0, 0]], ["Eventos autorais da PPA - online", "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", [0, 0, 0, 0, 0, 1000.0, 0, 0, 0, 0, 1000.0, 0]], ["Reuniões da PPA com parceiros (Edu marca)", "3.4. Passagens Rodoviárias", [0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0]], ["Reuniões da PPA com parceiros", "3.12. Alimentação", [100.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0]], ["Reuniões da PPA com parceiros", "3.9. Taxis ou Aplicativos de Transporte", [60.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0]], ["Parcerias Institucionais", "5.5. Designer", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2000.0, 0]], ["Parcerias Institucionais", "4.3. Brindes e Doações", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500.0]], ["Parcerias Institucionais", "4.2. Produção de Materiais Digitais (Infográficos, Vídeos)", [0, 0, 0, 0, 0, 0, 0, 1500.0, 0, 0, 0, 0]], ["Eventos Internacionais - Participação PPA", "3.2. Passagens Aéreas Internacionais", [0, 0, 0, 0, 0, 0, 0, 7000.0, 0, 0, 0, 0]], ["Eventos Internacionais - Participação PPA", "3.6. Seguro Viagem", [0, 0, 0, 0, 0, 0, 0, 500.0, 0, 0, 0, 0]], ["Eventos Internacionais - Participação PPA", "3.11. Hospedagem", [0, 0, 0, 0, 0, 0, 0, 4200.0, 0, 0, 0, 0]], ["Eventos Internacionais - Participação PPA", "3.13. Ajuda de Custo", [0, 0, 0, 0, 0, 0, 0, 4200.0, 0, 0, 0, 0]], ["Eventos Internacionais - Participação PPA", "4.2. Produção de Materiais Digitais (Infográficos, Vídeos)", [0, 0, 0, 0, 0, 0, 0, 500.0, 0, 0, 0, 0]], ["Eventos Internacionais - Participação PPA", "4.3. Brindes e Doações", [0, 0, 0, 0, 0, 0, 0, 500.0, 0, 0, 0, 0]]];
-const REAL=[{"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "I VALE DE LIMA LTDA", "valor": 17}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "SS EVENTOS E SERVICOS LTDA", "valor": 49.66}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "SS EVENTOS E SERVICOS LTDA", "valor": 38}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "CITY PARKING LTDA", "valor": 51}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 75}, {"mes": 6, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1756.65}, {"mes": 6, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 252.31}, {"mes": 6, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 73.96}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "EDUARDO DA ROCHA E SOUZA", "valor": 1350}, {"mes": 4, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 137.08}, {"mes": 4, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 176.43}, {"mes": 4, "atv": "Reuniões da PPA com parceiros", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 15.6}, {"mes": 5, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 37.84}, {"mes": 5, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 15.3}, {"mes": 5, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 22.5}, {"mes": 5, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 25.41}, {"mes": 5, "atv": "Eventos de parceiros no Sudeste", "rub": "3.4. Passagens Rodoviárias", "forn": "EMPRESA DE ONIBUS PASSARO MARRON S/A.", "valor": 39.05}, {"mes": 5, "atv": "Eventos de parceiros no Sudeste", "rub": "3.4. Passagens Rodoviárias", "forn": "EMPRESA DE ONIBUS PASSARO MARRON S/A.", "valor": 39.05}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "SS EVENTOS E SERVICOS LTDA", "valor": 47.52}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.13. Ajuda de Custo", "forn": "Luciana Vanni Gatti", "valor": 320}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.13. Ajuda de Custo", "forn": "Matheus Santos Moreira", "valor": 950}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1729.04}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.12. Alimentação", "forn": "56.910.846 LUCAS DE SOUZA E SOUZA", "valor": 5250}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "2.9. Materiais de Escritório", "forn": "C. F. PAPELARIA & EMBALAGENS LTDA", "valor": 22}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "2.9. Materiais de Escritório", "forn": "C. F. PAPELARIA & EMBALAGENS LTDA", "valor": 25}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "4.4. Gráfica e Impressão", "forn": "CRITERIO GRAFICO DIGITAL & SERVICO LTDA", "valor": 889.6}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.10. Estacionamento", "forn": "CONCESSIONARIA DO SISTEMA ANHANGUERA-BANDEIRANTES S/A", "valor": 13.7}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "2.9. Materiais de Escritório", "forn": "SODEXO DO BRASIL COMERCIAL S.A.", "valor": 50}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.12. Alimentação", "forn": "SODEXO DO BRASIL COMERCIAL S.A.", "valor": 16}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.12. Alimentação", "forn": "SODEXO DO BRASIL COMERCIAL S.A.", "valor": 24}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.10. Estacionamento", "forn": "CONCESSIONARIA DO SISTEMA ANHANGUERA-BANDEIRANTES S/A", "valor": 13.7}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.1. Combustível", "forn": "VITRINE - COMERCIO VAREJISTA DE COMBUSTIVEIS LTDA", "valor": 89}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "5.1. Contratação de Agências de Comunicação", "forn": "MARCOS ESTEVAO SILVA SCAGLIONE 40478371802", "valor": 2500}, {"mes": 3, "atv": "Reuniões da PPA com parceiros", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "MOVIDA PARTICIPACOES S.A.", "valor": 27.3}, {"mes": 4, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 565.96}, {"mes": 4, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1032.95}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1438.22}, {"mes": 3, "atv": "Eventos autorais da PPA - Presencial", "rub": "2.9. Materiais de Escritório", "forn": "ACRILZANO ARTEFATOS DE ACRILICO LTDA", "valor": 56.16}, {"mes": 1, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 47.5}];
+const REAL=[{"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "I VALE DE LIMA LTDA", "valor": 17}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "SS EVENTOS E SERVICOS LTDA", "valor": 49.66}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "SS EVENTOS E SERVICOS LTDA", "valor": 38}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "CITY PARKING LTDA", "valor": 51}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 75}, {"mes": 6, "atv": "Eventos autorais da PPA - presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1756.65}, {"mes": 6, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 252.31}, {"mes": 6, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 73.96}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "EDUARDO DA ROCHA E SOUZA", "valor": 1350}, {"mes": 4, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 137.08}, {"mes": 4, "atv": "Eventos autorais da PPA - presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 176.43}, {"mes": 4, "atv": "Reuniões da PPA com parceiros", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 15.6}, {"mes": 5, "atv": "Eventos autorais da PPA - presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 37.84}, {"mes": 5, "atv": "Eventos autorais da PPA - presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 15.3}, {"mes": 5, "atv": "Eventos autorais da PPA - presencial", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 22.5}, {"mes": 5, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "99 TECNOLOGIA LTDA", "valor": 25.41}, {"mes": 5, "atv": "Eventos de parceiros no Sudeste", "rub": "3.4. Passagens Rodoviárias", "forn": "EMPRESA DE ONIBUS PASSARO MARRON S/A.", "valor": 39.05}, {"mes": 5, "atv": "Eventos de parceiros no Sudeste", "rub": "3.4. Passagens Rodoviárias", "forn": "EMPRESA DE ONIBUS PASSARO MARRON S/A.", "valor": 39.05}, {"mes": 5, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.13. Ajuda de Custo", "forn": "SS EVENTOS E SERVICOS LTDA", "valor": 47.52}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.13. Ajuda de Custo", "forn": "Luciana Vanni Gatti", "valor": 320}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.13. Ajuda de Custo", "forn": "Matheus Santos Moreira", "valor": 950}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1729.04}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.12. Alimentação", "forn": "56.910.846 LUCAS DE SOUZA E SOUZA", "valor": 5250}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "2.9. Materiais de Escritório", "forn": "C. F. PAPELARIA & EMBALAGENS LTDA", "valor": 22}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "2.9. Materiais de Escritório", "forn": "C. F. PAPELARIA & EMBALAGENS LTDA", "valor": 25}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "4.4. Gráfica e Impressão", "forn": "CRITERIO GRAFICO DIGITAL & SERVICO LTDA", "valor": 889.6}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.10. Estacionamento", "forn": "CONCESSIONARIA DO SISTEMA ANHANGUERA-BANDEIRANTES S/A", "valor": 13.7}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "2.9. Materiais de Escritório", "forn": "SODEXO DO BRASIL COMERCIAL S.A.", "valor": 50}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.12. Alimentação", "forn": "SODEXO DO BRASIL COMERCIAL S.A.", "valor": 16}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.12. Alimentação", "forn": "SODEXO DO BRASIL COMERCIAL S.A.", "valor": 24}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.10. Estacionamento", "forn": "CONCESSIONARIA DO SISTEMA ANHANGUERA-BANDEIRANTES S/A", "valor": 13.7}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.1. Combustível", "forn": "VITRINE - COMERCIO VAREJISTA DE COMBUSTIVEIS LTDA", "valor": 89}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "5.1. Contratação de Agências de Comunicação", "forn": "MARCOS ESTEVAO SILVA SCAGLIONE 40478371802", "valor": 2500}, {"mes": 3, "atv": "Reuniões da PPA com parceiros", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "MOVIDA PARTICIPACOES S.A.", "valor": 27.3}, {"mes": 4, "atv": "Eventos autorais da PPA - presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 565.96}, {"mes": 4, "atv": "Eventos de parceiros na Amazônia/Centro-Oeste/Nordeste", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1032.95}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1438.22}, {"mes": 3, "atv": "Eventos autorais da PPA - presencial", "rub": "2.9. Materiais de Escritório", "forn": "ACRILZANO ARTEFATOS DE ACRILICO LTDA", "valor": 56.16}, {"mes": 1, "atv": "Eventos de parceiros no Sudeste", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 47.5}];
 const MESES_NOMES=["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 const MESES_FULL=["Janeiro", "Fevereiro", "Mar\u00e7o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 const TOT_ORC_ANUAL=66340.00;
-const MESES_DISPONIVEIS=6;
+const MES_MAX_DADOS=6;
 
-let mesSel=-1;
+let mesIni=1, mesFim=MES_MAX_DADOS;
 
 (function(){
   const row=document.getElementById('meses-row');
-  let html='<button class="mes-btn acumulado ativo" onclick="selMes(-1,this)">Acumulado Jan–Jun</button>';
+  let html='<button class="mes-btn ativo" id="btn-acumulado" onclick="selAcumulado()">Acumulado Jan–'+MESES_NOMES[MES_MAX_DADOS-1]+'</button>';
   for(let i=0;i<12;i++){
-    const semDados=i>=MESES_DISPONIVEIS;
-    html+=`<button class="mes-btn${semDados?' sem-dados':''}" onclick="selMes(${i},this)">${MESES_NOMES[i]}</button>`;
+    const semDados=(i+1)>MES_MAX_DADOS;
+    html+=`<button class="mes-btn${semDados?' sem-dados':''}" id="btn-mes-${i}" onclick="selMesUnico(${i+1})">${MESES_NOMES[i]}</button>`;
   }
   row.innerHTML=html;
+
+  const selDe=document.getElementById('sel-de'), selAte=document.getElementById('sel-ate');
+  let opts='';
+  for(let i=0;i<12;i++) opts+=`<option value="${i+1}">${MESES_NOMES[i]}</option>`;
+  selDe.innerHTML=opts; selAte.innerHTML=opts;
+  selDe.value=1; selAte.value=MES_MAX_DADOS;
 })();
 
 const fmtR=v=>'R$\u00a0'+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -235,17 +255,27 @@ function miniB(p){
 function scl(s){return s>0?'vp':s<0?'vn':'vz'}
 
 function orcPer(m12){
-  if(mesSel===-1) return m12.slice(0,MESES_DISPONIVEIS).reduce((a,b)=>a+b,0);
-  return m12[mesSel]||0;
+  let s=0;
+  for(let m=mesIni;m<=mesFim;m++) s+=m12[m-1]||0;
+  return s;
 }
 function realPer(lancs){
-  if(mesSel===-1) return lancs.filter(l=>l.mes<=MESES_DISPONIVEIS).reduce((a,l)=>a+l.valor,0);
-  return lancs.filter(l=>l.mes===mesSel+1).reduce((a,l)=>a+l.valor,0);
+  return lancs.filter(l=>l.mes>=mesIni && l.mes<=mesFim).reduce((a,l)=>a+l.valor,0);
+}
+
+function atualizaTextoPeriodo(){
+  if(mesIni===1 && mesFim===MES_MAX_DADOS) {
+    document.getElementById('txt-periodo').textContent = 'Acumulado Jan–'+MESES_FULL[MES_MAX_DADOS-1].slice(0,3)+' · 2026';
+  } else if(mesIni===mesFim) {
+    document.getElementById('txt-periodo').textContent = MESES_FULL[mesIni-1]+' · 2026';
+  } else {
+    document.getElementById('txt-periodo').textContent = MESES_FULL[mesIni-1]+' a '+MESES_FULL[mesFim-1]+' · 2026';
+  }
 }
 
 function atualizaCards(){
   const totOrcP=ORC.reduce((s,r)=>s+orcPer(r[2]),0);
-  const totRealP=mesSel===-1?REAL.filter(l=>l.mes<=MESES_DISPONIVEIS).reduce((a,l)=>a+l.valor,0):REAL.filter(l=>l.mes===mesSel+1).reduce((a,l)=>a+l.valor,0);
+  const totRealP=realPer(REAL);
   const saldo=TOT_ORC_ANUAL-REAL.reduce((a,l)=>a+l.valor,0);
   const pctR=totOrcP>0?(totRealP/totOrcP*100):0;
   const pctOP=(totOrcP/TOT_ORC_ANUAL*100);
@@ -254,14 +284,14 @@ function atualizaCards(){
   document.getElementById('c-orc-per-sub').textContent=`${pctOP.toFixed(1)}% do anual`;
   document.getElementById('b-orc-per').style.width=Math.min(pctOP,100)+'%';
   document.getElementById('c-real').textContent=fmtR(totRealP);
-  document.getElementById('c-real-sub').textContent = (mesSel>=0 && mesSel>=MESES_DISPONIVEIS)
-    ? 'Sem pagamentos registrados neste mês'
+  document.getElementById('c-real-sub').textContent = totRealP===0
+    ? 'Sem pagamentos registrados no período'
     : `${pctR.toFixed(1)}% do orçado no período`;
   document.getElementById('b-real').style.width=Math.min(pctR,100)+'%';
   document.getElementById('c-saldo').textContent=fmtR(saldo);
   document.getElementById('c-saldo-sub').textContent=`${(saldo/TOT_ORC_ANUAL*100).toFixed(1)}% ainda disponível`;
   document.getElementById('b-saldo').style.width=Math.min((saldo/TOT_ORC_ANUAL*100),100)+'%';
-  document.getElementById('txt-periodo').textContent=mesSel===-1?'Acumulado Jan–Jun · 2026':MESES_FULL[mesSel]+' · 2026';
+  atualizaTextoPeriodo();
 }
 
 function buildAtiv(){
@@ -302,7 +332,7 @@ function buildAtiv(){
       const lancs=realMap[atv+'|'+rub]||[];
       const rOP=orcPer(ri.m12),rRP=realPer(lancs);
       const rS=rOP-rRP,rP=rOP>0?(rRP/rOP*100):(rRP>0?999:0);
-      const lF=mesSel===-1?lancs.filter(l=>l.mes<=MESES_DISPONIVEIS):lancs.filter(l=>l.mes===mesSel+1);
+      const lF=lancs.filter(l=>l.mes>=mesIni && l.mes<=mesFim);
       const temFilhos=lF.length>0;
       html+=`<tr class="tr-filho${temFilhos?' clicavel':''}" id="${rid}" data-pai="a${ai}" ${temFilhos?`onclick="togFilho('${rid}')"`:''}>
         <td>${rub}</td>
@@ -350,7 +380,7 @@ function buildRub(){
     ri++;
     const pid=`rg${ri}`;
     const rS=rOP-rRP,rP=rOP>0?(rRP/rOP*100):(rRP>0?999:0);
-    const lF=mesSel===-1?lancs.filter(l=>l.mes<=MESES_DISPONIVEIS):lancs.filter(l=>l.mes===mesSel+1);
+    const lF=lancs.filter(l=>l.mes>=mesIni && l.mes<=mesFim);
     tOP+=rOP;tRP+=rRP;
     html+=`<tr class="tr-pai" id="${pid}" onclick="togPai('${pid}')">
       <td><span class="chevron">▶</span>${rub}</td>
@@ -389,17 +419,47 @@ function togFilho(id){
   const ab=tr.classList.contains('aberto');
   document.querySelectorAll(`[data-pai="${id}"]`).forEach(el=>el.classList.toggle('vis',ab));
 }
-function selMes(m,btn){
-  document.querySelectorAll('.mes-btn:not(.futuro)').forEach(b=>b.classList.remove('ativo'));
-  btn.classList.add('ativo');mesSel=m;
+
+function marcarBotaoAtivo(){
+  document.querySelectorAll('.mes-btn').forEach(b=>b.classList.remove('ativo'));
+  if(mesIni===1 && mesFim===MES_MAX_DADOS){
+    document.getElementById('btn-acumulado').classList.add('ativo');
+  } else if(mesIni===mesFim){
+    const btn=document.getElementById('btn-mes-'+(mesIni-1));
+    if(btn) btn.classList.add('ativo');
+  }
+}
+
+function selAcumulado(){
+  mesIni=1; mesFim=MES_MAX_DADOS;
+  document.getElementById('sel-de').value=mesIni;
+  document.getElementById('sel-ate').value=mesFim;
+  marcarBotaoAtivo();
   atualizaCards();buildAtiv();buildRub();
 }
+function selMesUnico(m){
+  mesIni=m; mesFim=m;
+  document.getElementById('sel-de').value=m;
+  document.getElementById('sel-ate').value=m;
+  marcarBotaoAtivo();
+  atualizaCards();buildAtiv();buildRub();
+}
+function aplicarIntervalo(){
+  const de=parseInt(document.getElementById('sel-de').value);
+  const ate=parseInt(document.getElementById('sel-ate').value);
+  mesIni=Math.min(de,ate); mesFim=Math.max(de,ate);
+  marcarBotaoAtivo();
+  atualizaCards();buildAtiv();buildRub();
+}
+
 function mostraAba(id,btn){
   document.querySelectorAll('.painel').forEach(p=>p.classList.remove('ativo'));
   document.querySelectorAll('.aba').forEach(b=>b.classList.remove('ativa'));
   document.getElementById('painel-'+id).classList.add('ativo');
   btn.classList.add('ativa');
 }
+
+marcarBotaoAtivo();
 atualizaCards();buildAtiv();buildRub();
 </script>
 </body></html>
