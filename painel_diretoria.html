@@ -103,6 +103,24 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .ranking-barra-fill{height:7px;border-radius:3px;transition:width .3s}
 .ranking-saldo-valor{font-size:12.5px;font-weight:600;white-space:nowrap;min-width:90px;text-align:right}
 
+.chk-item{margin-right:8px;cursor:pointer;width:14px;height:14px;vertical-align:middle;accent-color:var(--vd)}
+.forn-linha{display:flex;align-items:center}
+
+.barra-selecao{position:fixed;left:0;right:0;bottom:0;background:var(--vd);color:#fff;padding:12px 2rem;
+  display:none;align-items:center;gap:14px;flex-wrap:wrap;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+.barra-selecao.aberta{display:flex}
+.barra-sel-info{font-size:13px;font-weight:600}
+.barra-sel-info .num{color:var(--vl)}
+.barra-sel-nome{flex:1;min-width:180px}
+.barra-sel-nome input{width:100%;font-family:'Poppins',sans-serif;font-size:12px;padding:7px 10px;border-radius:6px;border:none;background:rgba(255,255,255,.12);color:#fff}
+.barra-sel-nome input::placeholder{color:rgba(255,255,255,.5)}
+.barra-sel-btn{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:6px;border:none;cursor:pointer;white-space:nowrap}
+.barra-sel-btn.baixar{background:var(--vl);color:var(--vd)}
+.barra-sel-btn.baixar:hover{opacity:.9}
+.barra-sel-btn.limpar{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3)}
+.barra-sel-btn.limpar:hover{color:#fff;border-color:#fff}
+@media(max-width:700px){.barra-selecao{padding:10px 1rem;flex-direction:column;align-items:stretch}}
+
 .abas{display:flex}
 .aba{font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;padding:12px 20px;cursor:pointer;border:none;background:none;color:var(--ct);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
 .aba.ativa{color:var(--vd);border-bottom-color:var(--vd)}
@@ -291,19 +309,21 @@ thead th:first-child{text-align:left;padding-left:16px}
   </div>
   <div class="nota">
     <strong>Associação PPA</strong> · Gerência Administrativa e Financeira · Dados: API Ongsys (coleta automatizada)<br>
-    Orçamento institucional aprovado 2026 · Atualizado em julho/2026
+    Orçamento institucional aprovado 2026 · Atualizado em julho/2026<br>
+    Desenvolvido por Janiele Pereira da Silva
   </div>
 </div>
 
 <script>
 const ORC=[["Reunião do Conselho (Presencial)", "3.12. Alimentação", [0, 500.0, 0, 0, 0, 500.0, 0, 0, 0, 0, 500.0, 0]], ["Reunião do Conselho (Presencial)", "4.4. Gráfica e Impressão", [0, 1000.0, 0, 0, 0, 1000.0, 0, 0, 0, 0, 1000.0, 0]], ["Reunião do Conselho (Presencial)", "3.3. Passagens Aéreas Nacionais", [0, 2000.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], ["Reunião do Conselho (Presencial)", "3.6. Seguro Viagem", [0, 100.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], ["Reuniões Institucionais", "3.9. Taxis ou Aplicativos de Transporte", [100.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]], ["Viagens Institucionais", "3.13. Ajuda de Custo", [0, 800.0, 0, 0, 800.0, 0, 0, 800.0, 0, 0, 800.0, 0]], ["Viagens Institucionais", "3.3. Passagens Aéreas Nacionais", [0, 3000.0, 0, 0, 3000.0, 0, 0, 3000.0, 0, 0, 3000.0, 0]], ["Viagens Institucionais", "3.11. Hospedagem", [0, 1000.0, 0, 0, 1000.0, 0, 0, 1000.0, 0, 0, 1000.0, 0]], ["Viagens Institucionais", "3.6. Seguro Viagem", [0, 100.0, 0, 0, 0, 0, 0, 100.0, 0, 0, 100.0, 0]], ["Consultorias", "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", [0, 0, 35000.0, 0, 0, 0, 0, 10000.0, 0, 0, 0, 0]]];
-const REAL=[{"mes": 6, "atv": "Consultorias", "rub": "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", "forn": "FM IMPRESSOS PERSONALIZADOS LTDA.", "valor": 2992.62, "hist": "Serviços de impressões Gráficas de Catálogo Canal Comercial."}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 78, "hist": "Seguro Viagem para  para Augusto Correa participar do Encontro com a Rede Jirau, entre os dias 25 e 28/05/2026, em Cametá - PA."}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1506.97, "hist": "Hospedagem para Eduardo Rocha participar do evento Bioeconomy Amazon Summit, entre os dias 11 e 16/05/2026 em Belem - PA.  Passagem aérea para Manuela Ribeiro  entre os dias 06 e 09/07/2026 em Belém - PA. Passagem aérea para Marley Carvalho entre os dias 04 e 18/07/2026 em Belém - PA.  Passagem aérea para Mayra Santos entre os dias 06 e 13/06/2026 em Belem - PA."}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 25.96, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em maio de 2026."}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 42, "hist": "Seguro viagem para Mayra Santos entre os dias 13 e 14/06/2026 em Belém - PA."}, {"mes": 6, "atv": "Consultorias", "rub": "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", "forn": "ARANDU EDUCACAO COLABORATIVA LTDA", "valor": 12750, "hist": "0014CTPS2026_ARANDU Consultoria para elaboração da publicação PPA 2026 - Produto 01 PARC01_03"}, {"mes": 4, "atv": "Reuniões Institucionais", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 1089.35, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em março de 2026."}, {"mes": 5, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "AUGUSTO CESAR ASCENDINO CORREA", "valor": 1100, "hist": "Ajuda de Custo para Augusto Correa com a finalidade de cobrir despesas relacionadas à viagem como participante do Encontro com a Rede Jirau, entre os dias 25 e 28/05/2026, em Cametá - PA."}, {"mes": 5, "atv": "Reuniões Institucionais", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 75.88, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em abril de 2026."}, {"mes": 5, "atv": "Viagens Institucionais", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 2850.16, "hist": "Passagens Aéreas para Augusto Correa participar do Encontro com a Rede Jirau, entre os dias 25 e 28/05/2026, em Cametá - PA."}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "LETÍCIA ARAÚJO CABRAL", "valor": 1094, "hist": "Ajuda de Custo para Letícia Cabral com a finalidade de cobrir as despesas  como participante no Fórum Ativacred Amazônia - Edição Marajó Resiliente, no dia 04/03/2026, em Salvaterra - PA."}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 4128.04, "hist": "Passagem aérea para Bruna Santos como participante no evento Territórios Amazônicos, Clima e Biodiversidade: evidências, vozes e o engajamento para ação multissetorial, entre os dias 19 e 21/03/2026, na sede da Natura(NASP) em São Paulo - SP .  E Passagens aéreas para Tassia Ribeiro e Augusto participarem  de Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM."}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 31.5, "hist": "Seguro Viagem para Letícia Cabral participar do Fórum Ativacred Amazônia - Edição Marajó Resiliente, no dia 04/03/2026, em Salvaterra - PA."}, {"mes": 2, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "OBJEKTI COMERCIAL LTDA", "valor": 465, "hist": "Despesas com  Brinde  de Agradecimento pelo mandato do Fábio Deboni como presidente do Conselho Deliberativo PPA, no dia 03/02/2026 , em  São Paulo - SP"}, {"mes": 4, "atv": "Viagens Institucionais", "rub": "3.11. Hospedagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 753.3, "hist": "Hospedagem para Tassia Ribeiro e Augusto participarem  de Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM."}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "RODOSNACK CASTELO LANCHONETE E RESTAURANTE LTDA", "valor": 29.9, "hist": "Reembolso para Fabio Deboni de despesas com alimentação para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP."}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "REYEL RESTAURANTE LTDA - DIVINO FOGÃO", "valor": 50.69, "hist": "Reembolso para Fabio Deboni de despesas com alimentação para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP."}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "RODOSNACK TOPAZIO LANCHONETE E RESTAURANTE LTDA", "valor": 24.8, "hist": "Reembolso para Fabio Deboni de despesas com alimentação para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP."}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "VIACAO PIRACICABANA S.A.", "valor": 117.35, "hist": "Reembolso para Fabio Deboni de despesas com passagens terrestres para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP."}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "VIACAO PIRACICABANA S.A.", "valor": 112.1, "hist": "Reembolso para Fabio Deboni de despesas com passagens terrestres para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP."}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "TÁSSIA RIBEIRO COBUCCI ", "valor": 200, "hist": "Ajuda de Custo para Tassia Ribeiro com a finalidade de cobrir despesas relacionadas à participação na Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM."}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "AUGUSTO CESAR ASCENDINO CORREA", "valor": 200, "hist": "Ajuda de Custo para Augusto Correa com a finalidade de cobrir despesas relacionadas à participação na Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM."}, {"mes": 1, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 417.69, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em dezembro de 2025."}];
+const REAL=[{"mes": 6, "atv": "Consultorias", "rub": "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", "forn": "FM IMPRESSOS PERSONALIZADOS LTDA.", "valor": 2992.62, "hist": "Serviços de impressões Gráficas de Catálogo Canal Comercial.", "id": "DIR0"}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 78, "hist": "Seguro Viagem para  para Augusto Correa participar do Encontro com a Rede Jirau, entre os dias 25 e 28/05/2026, em Cametá - PA.", "id": "DIR1"}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1506.97, "hist": "Hospedagem para Eduardo Rocha participar do evento Bioeconomy Amazon Summit, entre os dias 11 e 16/05/2026 em Belem - PA.  Passagem aérea para Manuela Ribeiro  entre os dias 06 e 09/07/2026 em Belém - PA. Passagem aérea para Marley Carvalho entre os dias 04 e 18/07/2026 em Belém - PA.  Passagem aérea para Mayra Santos entre os dias 06 e 13/06/2026 em Belem - PA.", "id": "DIR2"}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 25.96, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em maio de 2026.", "id": "DIR3"}, {"mes": 6, "atv": "Viagens Institucionais", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 42, "hist": "Seguro viagem para Mayra Santos entre os dias 13 e 14/06/2026 em Belém - PA.", "id": "DIR4"}, {"mes": 6, "atv": "Consultorias", "rub": "5.3. Contratação de Serviços Terceirizados (Estudos, Pesquisas, Consultorias)", "forn": "ARANDU EDUCACAO COLABORATIVA LTDA", "valor": 12750, "hist": "0014CTPS2026_ARANDU Consultoria para elaboração da publicação PPA 2026 - Produto 01 PARC01_03", "id": "DIR5"}, {"mes": 4, "atv": "Reuniões Institucionais", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 1089.35, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em março de 2026.", "id": "DIR6"}, {"mes": 5, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "AUGUSTO CESAR ASCENDINO CORREA", "valor": 1100, "hist": "Ajuda de Custo para Augusto Correa com a finalidade de cobrir despesas relacionadas à viagem como participante do Encontro com a Rede Jirau, entre os dias 25 e 28/05/2026, em Cametá - PA.", "id": "DIR7"}, {"mes": 5, "atv": "Reuniões Institucionais", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 75.88, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em abril de 2026.", "id": "DIR8"}, {"mes": 5, "atv": "Viagens Institucionais", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 2850.16, "hist": "Passagens Aéreas para Augusto Correa participar do Encontro com a Rede Jirau, entre os dias 25 e 28/05/2026, em Cametá - PA.", "id": "DIR9"}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "LETÍCIA ARAÚJO CABRAL", "valor": 1094, "hist": "Ajuda de Custo para Letícia Cabral com a finalidade de cobrir as despesas  como participante no Fórum Ativacred Amazônia - Edição Marajó Resiliente, no dia 04/03/2026, em Salvaterra - PA.", "id": "DIR10"}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 4128.04, "hist": "Passagem aérea para Bruna Santos como participante no evento Territórios Amazônicos, Clima e Biodiversidade: evidências, vozes e o engajamento para ação multissetorial, entre os dias 19 e 21/03/2026, na sede da Natura(NASP) em São Paulo - SP .  E Passagens aéreas para Tassia Ribeiro e Augusto participarem  de Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM.", "id": "DIR11"}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 31.5, "hist": "Seguro Viagem para Letícia Cabral participar do Fórum Ativacred Amazônia - Edição Marajó Resiliente, no dia 04/03/2026, em Salvaterra - PA.", "id": "DIR12"}, {"mes": 2, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "OBJEKTI COMERCIAL LTDA", "valor": 465, "hist": "Despesas com  Brinde  de Agradecimento pelo mandato do Fábio Deboni como presidente do Conselho Deliberativo PPA, no dia 03/02/2026 , em  São Paulo - SP", "id": "DIR13"}, {"mes": 4, "atv": "Viagens Institucionais", "rub": "3.11. Hospedagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 753.3, "hist": "Hospedagem para Tassia Ribeiro e Augusto participarem  de Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM.", "id": "DIR14"}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "RODOSNACK CASTELO LANCHONETE E RESTAURANTE LTDA", "valor": 29.9, "hist": "Reembolso para Fabio Deboni de despesas com alimentação para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP.", "id": "DIR15"}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "REYEL RESTAURANTE LTDA - DIVINO FOGÃO", "valor": 50.69, "hist": "Reembolso para Fabio Deboni de despesas com alimentação para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP.", "id": "DIR16"}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.12. Alimentação", "forn": "RODOSNACK TOPAZIO LANCHONETE E RESTAURANTE LTDA", "valor": 24.8, "hist": "Reembolso para Fabio Deboni de despesas com alimentação para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP.", "id": "DIR17"}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "VIACAO PIRACICABANA S.A.", "valor": 117.35, "hist": "Reembolso para Fabio Deboni de despesas com passagens terrestres para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP.", "id": "DIR18"}, {"mes": 3, "atv": "Reunião do Conselho (Presencial)", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "VIACAO PIRACICABANA S.A.", "valor": 112.1, "hist": "Reembolso para Fabio Deboni de despesas com passagens terrestres para participar da Reunião do Conselho deliberativo da PPA,  no dia 05/03/2026, São Paulo - SP.", "id": "DIR19"}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "TÁSSIA RIBEIRO COBUCCI ", "valor": 200, "hist": "Ajuda de Custo para Tassia Ribeiro com a finalidade de cobrir despesas relacionadas à participação na Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM.", "id": "DIR20"}, {"mes": 3, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "AUGUSTO CESAR ASCENDINO CORREA", "valor": 200, "hist": "Ajuda de Custo para Augusto Correa com a finalidade de cobrir despesas relacionadas à participação na Reunião Institucional com a empresa Transpetro, no dia 16/03/2026, em Manaus – AM.", "id": "DIR21"}, {"mes": 1, "atv": "Viagens Institucionais", "rub": "3.13. Ajuda de Custo", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 417.69, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em dezembro de 2025.", "id": "DIR22"}];
 const MESES_NOMES=["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 const MESES_FULL=["Janeiro", "Fevereiro", "Mar\u00e7o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 const TOT_ORC_ANUAL=73400.00;
 const MES_MAX_DADOS=6;
 
 let mesIni=1, mesFim=MES_MAX_DADOS;
+const SELECIONADOS=new Set();
 
 (function(){
   const row=document.getElementById('meses-row');
@@ -426,8 +446,9 @@ function buildAtiv(){
         const nomeHtml=hist
           ? `<span class="tt-hist" data-hist="${hist}"><span class="tt-icon">i</span>${l.forn}</span>`
           : l.forn;
+        const marcado=SELECIONADOS.has(l.id)?'checked':'';
         html+=`<tr class="tr-neto" data-pai="${rid}">
-          <td><div class="forn-nome">${nomeHtml}</div></td>
+          <td><div class="forn-linha"><input type="checkbox" class="chk-item" data-id="${l.id}" ${marcado} onclick="event.stopPropagation();toggleSelecao('${l.id}',this.checked)"><div class="forn-nome">${nomeHtml}</div></div></td>
           <td></td><td>${fmtR(l.valor)}</td><td></td>
           <td><span class="mes-tag">${MESES_NOMES[l.mes-1]}</span></td><td></td>
         </tr>`;
@@ -478,8 +499,9 @@ function buildRub(){
       const nomeHtml=hist
         ? `<span class="tt-hist" data-hist="${hist}"><span class="tt-icon">i</span>${l.forn}</span>`
         : l.forn;
+      const marcado=SELECIONADOS.has(l.id)?'checked':'';
       html+=`<tr class="tr-filho vis" data-pai="${pid}">
-        <td><div class="forn-nome">${nomeHtml}</div><div style="font-size:11px;color:var(--ct)">${l.atv}</div></td>
+        <td><div class="forn-linha"><input type="checkbox" class="chk-item" data-id="${l.id}" ${marcado} onclick="event.stopPropagation();toggleSelecao('${l.id}',this.checked)"><div><div class="forn-nome">${nomeHtml}</div><div style="font-size:11px;color:var(--ct)">${l.atv}</div></div></div></td>
         <td></td><td>${fmtR(l.valor)}</td><td></td>
         <td><span class="mes-tag">${MESES_NOMES[l.mes-1]}</span></td><td></td>
       </tr>`;
@@ -656,6 +678,63 @@ function togPai(id){
     }
   });
 }
+function toggleSelecao(id,marcado){
+  if(marcado) SELECIONADOS.add(id);
+  else SELECIONADOS.delete(id);
+  atualizaBarraSelecao();
+}
+
+function atualizaBarraSelecao(){
+  const barra=document.getElementById('barra-selecao');
+  if(SELECIONADOS.size===0){
+    barra.classList.remove('aberta');
+    return;
+  }
+  const itens=REAL.filter(l=>SELECIONADOS.has(l.id));
+  const total=itens.reduce((s,l)=>s+l.valor,0);
+  document.getElementById('barra-sel-count').textContent=itens.length;
+  document.getElementById('barra-sel-total').textContent=fmtR(total);
+  barra.classList.add('aberta');
+}
+
+function limparSelecao(){
+  SELECIONADOS.clear();
+  document.querySelectorAll('.chk-item').forEach(c=>c.checked=false);
+  document.getElementById('barra-sel-nome-input').value='';
+  atualizaBarraSelecao();
+}
+
+function baixarPlanilhaSelecao(){
+  const itens=REAL.filter(l=>SELECIONADOS.has(l.id)).sort((a,b)=>a.mes-b.mes);
+  if(!itens.length) return;
+  const nomeRelatorio=(document.getElementById('barra-sel-nome-input').value||'Relatório de Pagamentos').trim();
+
+  const escapa=v=>'"'+String(v||'').replace(/"/g,'""')+'"';
+  const linhas=[];
+  linhas.push(escapa(nomeRelatorio));
+  linhas.push(escapa('Diretoria · Associação PPA · Gerado em '+new Date().toLocaleDateString('pt-BR')));
+  linhas.push('');
+  linhas.push([escapa('Mês'),escapa('Fornecedor'),escapa('Atividade'),escapa('Rubrica'),escapa('Valor (R$)'),escapa('Histórico')].join(';'));
+  itens.forEach(l=>{
+    const valorFmt=l.valor.toFixed(2).replace('.',',');
+    linhas.push([escapa(MESES_FULL[l.mes-1]),escapa(l.forn),escapa(l.atv),escapa(l.rub),escapa(valorFmt),escapa(l.hist||'')].join(';'));
+  });
+  const total=itens.reduce((s,l)=>s+l.valor,0);
+  linhas.push('');
+  linhas.push([escapa('TOTAL'),'','','',escapa(total.toFixed(2).replace('.',',')),''].join(';'));
+
+  const csv='\uFEFF'+linhas.join('\r\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=nomeRelatorio.replace(/[^a-zA-Z0-9À-ÿ ]/g,'').trim().replace(/\s+/g,'_')+'.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function togFilho(id){
   const tr=document.getElementById(id);
   tr.classList.toggle('aberto');
@@ -705,4 +784,11 @@ function mostraAba(id,btn){
 marcarBotaoAtivo();
 atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();
 </script>
+<div class="barra-selecao" id="barra-selecao">
+  <div class="barra-sel-info"><span class="num" id="barra-sel-count">0</span> pagamentos selecionados · Total: <span class="num" id="barra-sel-total">R$ 0,00</span></div>
+  <div class="barra-sel-nome"><input type="text" id="barra-sel-nome-input" placeholder="Nome do evento ou relatório (opcional)"></div>
+  <button class="barra-sel-btn baixar" onclick="baixarPlanilhaSelecao()">⬇ Baixar planilha</button>
+  <button class="barra-sel-btn limpar" onclick="limparSelecao()">Limpar seleção</button>
+</div>
+
 </body></html>
