@@ -68,6 +68,8 @@ td.r,th.r{text-align:right}
 .chk li.info::before{content:"\2139";color:var(--azul)}
 footer{font-size:12px;color:#6b776f;line-height:1.7;margin-top:30px;padding-top:18px;border-top:1px solid var(--borda)}
 footer b{color:var(--verde-escuro)}
+.footcred{margin-top:16px;padding-top:14px;border-top:1px solid var(--borda);font-size:12px;color:#7a857d;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footcred b{color:var(--verde-medio)}
 @media(max-width:720px){.kpis,.two{grid-template-columns:1fr}h1{font-size:23px}.ppa-logo{height:48px}}
 </style></head><body>
 <header><div class="wrap">
@@ -577,7 +579,7 @@ function render(partner){
 }
 const tabs=document.getElementById('tabs');
 Object.keys(DADOS.parceiros).forEach((p,idx)=>{const b=document.createElement('button');b.className='tab'+(idx===0?' on':'');b.dataset.p=p;b.innerHTML=`<span class="dot" style="background:${DADOS.parceiros[p].cor}"></span>${p}`;b.onclick=()=>render(p);tabs.appendChild(b);});
-document.getElementById('foot').innerHTML=`<b>Fontes:</b> recebimentos e execução via Ongsys (contasReceber / contasPagar, apenas baixas informadas); orçamentos das planilhas de cada contrato; cronogramas dos Termos Suzano (Programa Paricá) e do Grant Dow/CAF America (Programa Ybá).<br><b>Premissas:</b> separação Ciclo I / Ciclo II por data de pagamento com corte em <b>01/06/2026</b> (CCs 99218-1 Suzano e 99183-7 CAF America são compartilhados entre ciclos).<br><b>Pontos de atenção:</b> (1) o Ongsys registra as parcelas 2–4 do Ciclo II Suzano como 3× R$525.000 (R$2.340.000), divergente do contrato (R$600k/600k/135k = R$2.100.000) — o cronograma segue o contrato. (2) O orçamento do Ciclo II Suzano inclui R$67.196,61 de rendimento do Ciclo I reinvestido. (3) Anuidade/membresia recebida em conta institucional (99345-2), fora do CC do projeto.`;
+document.getElementById('foot').innerHTML=`<b>Fontes:</b> recebimentos e execução via Ongsys (contasReceber / contasPagar, apenas baixas informadas); orçamentos das planilhas de cada contrato; cronogramas dos Termos Suzano (Programa Paricá) e do Grant Dow/CAF America (Programa Ybá).<br><b>Premissas:</b> separação Ciclo I / Ciclo II por data de pagamento com corte em <b>01/06/2026</b> (CCs 99218-1 Suzano e 99183-7 CAF America são compartilhados entre ciclos).<br><b>Pontos de atenção:</b> (1) o Ongsys registra as parcelas 2–4 do Ciclo II Suzano como 3× R$525.000 (R$2.340.000), divergente do contrato (R$600k/600k/135k = R$2.100.000) — o cronograma segue o contrato. (2) O orçamento do Ciclo II Suzano inclui R$67.196,61 de rendimento do Ciclo I reinvestido. (3) Anuidade/membresia recebida em conta institucional (99345-2), fora do CC do projeto.<div class="footcred"><span><b>Associação PPA</b> · Gestão de Contratos de Parceria · Dados: API Ongsys (coleta automatizada)</span><span>Atualizado em '+DADOS.gerado.split(' ')[0].split('-').reverse().join('/')+'</span></div>`;
 render(currentPartner);
 
 // ---------- EXPORTAÇÃO CLIENT-SIDE ----------
