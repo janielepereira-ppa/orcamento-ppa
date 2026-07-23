@@ -25,7 +25,6 @@ h1{font-size:29px;font-weight:600;margin:6px 0 4px}
 .dl{display:flex;gap:8px}
 .dl button{cursor:pointer;font-family:inherit;font-size:13px;font-weight:500;padding:9px 16px;border-radius:24px;border:1.5px solid var(--borda);background:#fff;color:var(--verde-escuro);transition:.15s}
 .dl button:hover{background:var(--verde-lima)}
-.dl button:disabled{opacity:.5;cursor:wait}
 .banner{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--borda);border-radius:14px;padding:16px 22px;margin-top:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .banner img{height:44px}
 .banner .pl{border-left:2px solid var(--borda);padding-left:18px}
@@ -66,6 +65,20 @@ td.r,th.r{text-align:right}
 .chk li.ok::before{content:"\2714";color:var(--ok)}
 .chk li.warn::before{content:"\26A0";color:var(--alerta)}
 .chk li.info::before{content:"\2139";color:var(--azul)}
+.tl{display:flex;flex-direction:column}
+.tli{display:flex;align-items:center;gap:11px;padding:9px 4px;border-bottom:1px solid #eef1ee;font-size:13px}
+.tli .tldot{width:12px;height:12px;border-radius:50%;flex:none}
+.tli b{font-variant-numeric:tabular-nums}
+.tli.ok .tldot{background:var(--ok)}.tli.over .tldot{background:var(--erro)}.tli.soon .tldot{background:var(--alerta)}.tli.fut .tldot{background:#b8c2bb}
+.tli .tag{margin-left:auto;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.tli.ok .tag{background:#e7efdf;color:var(--ok)}.tli.over .tag{background:#f6e3e2;color:var(--erro)}.tli.soon .tag{background:#faf0e0;color:var(--alerta)}.tli.fut .tag{background:#eef1ee;color:#7a857d}
+details.desp{margin-top:14px;border:1px solid var(--borda);border-radius:12px;padding:4px 16px 10px}
+details.desp>summary{cursor:pointer;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--verde-medio);padding:12px 0;list-style:none}
+details.desp>summary::-webkit-details-marker{display:none}
+details.desp>summary::before{content:"\25B8 ";color:var(--verde-lima)}
+details.desp[open]>summary::before{content:"\25BE "}
+details.desp table{font-size:12px}
+details.desp td{padding:6px 8px}
 footer{font-size:12px;color:#6b776f;line-height:1.7;margin-top:30px;padding-top:18px;border-top:1px solid var(--borda)}
 footer b{color:var(--verde-escuro)}
 .footcred{margin-top:16px;padding-top:14px;border-top:1px solid var(--borda);font-size:12px;color:#7a857d;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -204,6 +217,1730 @@ const DADOS = {
       }
      ],
      "inst_total": 1817684.92,
+     "despesas": [
+      {
+       "data": "2026-05-22",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37096",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 107.5
+      },
+      {
+       "data": "2026-05-22",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37098",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1611.9
+      },
+      {
+       "data": "2026-05-08",
+       "fornecedor": "Posto De Combustivel Copa 94 Ltda",
+       "doc": "208413",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 94.78
+      },
+      {
+       "data": "2026-05-08",
+       "fornecedor": "Auto Posto Galileu Ltda",
+       "doc": "132418",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 196.13
+      },
+      {
+       "data": "2026-05-08",
+       "fornecedor": "Auto Posto Galileu Ltda",
+       "doc": "606521",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 240.03
+      },
+      {
+       "data": "2026-05-08",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT36803",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 2845.23
+      },
+      {
+       "data": "2026-05-08",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "012026",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1550
+      },
+      {
+       "data": "2026-02-20",
+       "fornecedor": "Associacao Instituto Terroa",
+       "doc": "012026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 124675
+      },
+      {
+       "data": "2026-01-23",
+       "fornecedor": "Agenda Publica",
+       "doc": "012026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 140000
+      },
+      {
+       "data": "2026-01-09",
+       "fornecedor": "Apollo Marketing Digital Ltda",
+       "doc": "4",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 11459
+      },
+      {
+       "data": "2026-01-09",
+       "fornecedor": "Municipio De Sao Paulo",
+       "doc": "020054290139",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 11.42
+      },
+      {
+       "data": "2026-01-05",
+       "fornecedor": "Instituto Fronteiras Do Desenvolvimento",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 170663.38
+      },
+      {
+       "data": "2026-01-05",
+       "fornecedor": "Instituto Fronteiras Do Desenvolvimento",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 6826.54
+      },
+      {
+       "data": "2025-12-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00035050",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 6670
+      },
+      {
+       "data": "2025-12-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00035050",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 1434.58
+      },
+      {
+       "data": "2025-12-18",
+       "fornecedor": "R E Rocha Comercio E Servicos Ltda",
+       "doc": "15527",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 22.5
+      },
+      {
+       "data": "2025-12-18",
+       "fornecedor": "Papelaria Eskema Ltda",
+       "doc": "7472",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 69.2
+      },
+      {
+       "data": "2025-12-18",
+       "fornecedor": "Sindicato Dos Taxistas Do Municipio De Maraba - Stmma",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 700
+      },
+      {
+       "data": "2025-12-18",
+       "fornecedor": "R E Rocha Comercio E Servicos Ltda",
+       "doc": "3370",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 44
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "M M Santos Casa De Eventos",
+       "doc": "294",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 457
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034810",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 3028.34
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "A M Portes Eventos Buffet Ltda",
+       "doc": "241",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1050
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 1800
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 1663.2
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 810.37
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 2625
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Agente Territorial",
+       "valor": 5000
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 1050
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1220251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 4250
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1225 ",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 3222.84
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "A M Portes Eventos Buffet Ltda",
+       "doc": "243",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 16500
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034796",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 1251.17
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Antonio Balbino Almeida Brito",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Roberta Alves Do Nascimento",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Maurino Dos Passos",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Aldenice Lima De Araujo",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Leila Carvalho De Jesus Santos",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Marinalva Silva Mota",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Roseni Moreira Rodrigues",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Luana Barbosa Da Silva",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Elizabete Viana Da Silva",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Francinete Da Cunha Souza",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Milton Cezar Souza Oliveira",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Juan Da Costa  Alencar",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Jose Marques Moreaes Dias",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Rosana Paz De Souza",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Josefina Souza Dos Santos",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Maria De Fatima Meirim",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Irislela Santos Meira",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Joanisa Ramos Alves",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Elzilene De Brito Antoario",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Maria Leude Alves Bastos",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Lilian Moreira Rodrigues Leal",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Lirio Lopes Faria",
+       "doc": "122025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 50
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Eduardo Da Rocha E Souza",
+       "doc": "202512",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 1250
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Erika Gloria Rocha Dos Santos",
+       "doc": "202512",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 1250
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Tássia Ribeiro Cobucci",
+       "doc": "202512",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 1250
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Tássia Ribeiro Cobucci",
+       "doc": "2025121",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1831
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Apollo Marketing Digital Ltda",
+       "doc": "250000022",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 11059
+      },
+      {
+       "data": "2025-12-02",
+       "fornecedor": "Adevaldo Rodrigues De Oliveira 67545599268",
+       "doc": "2",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 22200
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Posto Renascer Wr Ltda",
+       "doc": "50821",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 143.06
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Posto Do Bolinha Ltda",
+       "doc": "646238",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 97.9
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Auto Posto Galileu Ltda",
+       "doc": "0534099",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 220.04
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "22934106",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 40.38
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "A M Portes Eventos Buffet Ltda",
+       "doc": "237",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 14850
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "M M Santos Casa De Eventos",
+       "doc": "293",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 900
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Gabriel Maximo Da Silva",
+       "doc": "112025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1550
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "112025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1550
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "Franquismar Marciel De Souza",
+       "doc": "112025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 2000
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034592",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 2691.27
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034592",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1052
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034337",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 7446.84
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "1125 ",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 10603.69
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 3600
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 3326.4
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 1620.75
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 5250
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Agente Territorial",
+       "valor": 10000
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 2100
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "11251",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 8500
+      },
+      {
+       "data": "2025-11-13",
+       "fornecedor": "Mti Prime Hotel Ltda",
+       "doc": "2086",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 2430
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "22620787",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 61.09
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "28810",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 221.04
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "523078",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] de Avaliação Anual",
+       "valor": 224.03
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Gabriel Maximo Da Silva",
+       "doc": "102025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 2000
+      },
+      {
+       "data": "2025-10-22",
+       "fornecedor": "Associacao Instituto Terroa",
+       "doc": "022025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 350000
+      },
+      {
+       "data": "2025-10-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033908",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 1495
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "112025",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Administração Financeira",
+       "valor": 15000
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "132025",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 2947.84
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 1800
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 1663.2
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 810.37
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 2625
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Agente Territorial",
+       "valor": 5000
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 1050
+      },
+      {
+       "data": "2025-09-30",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "122025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 4250
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033696",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 17
+      },
+      {
+       "data": "2025-09-12",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033457",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 4408.5
+      },
+      {
+       "data": "2025-09-12",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033457",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 4980.64
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "082025",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Administração Financeira",
+       "valor": 15000
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "092025",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 6005.53
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 5400
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 4989.6
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 2431.12
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 7875
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Agente Territorial",
+       "valor": 15000
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 3150
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "102025",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 12750
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Manu Mix Comercio De Artigos E Papelaria Ltda",
+       "doc": "2963",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 46.5
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033250",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 696
+      },
+      {
+       "data": "2025-08-12",
+       "fornecedor": "Posto De Combustivel Copa 2002 Ltda",
+       "doc": "52949",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 132.74
+      },
+      {
+       "data": "2025-08-12",
+       "fornecedor": "Auto Posto Galileu Ltda",
+       "doc": "493127",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 137.82
+      },
+      {
+       "data": "2025-08-12",
+       "fornecedor": "Posto Renascer Wr Ltda",
+       "doc": "48997",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 175.12
+      },
+      {
+       "data": "2025-08-12",
+       "fornecedor": "Oliveira & Tida Ltda",
+       "doc": "51914",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 47.13
+      },
+      {
+       "data": "2025-08-12",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "01",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 2350
+      },
+      {
+       "data": "2025-08-12",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "32968",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Passagens Aéreas",
+       "valor": 9287.49
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 1617.95
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Passagens Aéreas",
+       "valor": 2518.56
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Passagens Aéreas",
+       "valor": 2302.38
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 276.5
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 91.5
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 227
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 280.5
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 59.36
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 535
+      },
+      {
+       "data": "2025-06-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": " FT00032406",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 276.5
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_ADMFIN_03",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Administração Financeira",
+       "valor": 17500
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 5400
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 4989.6
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 2431.12
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 7875
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Agente Territorial",
+       "valor": 15000
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 3150
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 12750
+      },
+      {
+       "data": "2025-06-18",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_TXADM_03",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 11072.84
+      },
+      {
+       "data": "2025-06-09",
+       "fornecedor": "Cooperativa Dos Agricultores Familiares E Agroindustriais De Dom Eliseu - Cooagro",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 49808
+      },
+      {
+       "data": "2025-06-06",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "052025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 2349.15
+      },
+      {
+       "data": "2025-06-06",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "32064",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 1431.2
+      },
+      {
+       "data": "2025-06-06",
+       "fornecedor": "Psma Empreendimentos E Participacoes S.A",
+       "doc": "500019",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 10
+      },
+      {
+       "data": "2025-06-06",
+       "fornecedor": "R E Rocha Comercio E Servicos Ltda",
+       "doc": "2442",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Chamada de Projetos] Divulgação (Imprensa, Social Media, etc)",
+       "valor": 238.75
+      },
+      {
+       "data": "2025-06-02",
+       "fornecedor": "Associacao Dos Produtores Rurais Da Marajoara",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 28545
+      },
+      {
+       "data": "2025-05-30",
+       "fornecedor": "Instituto Florescer",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 47367
+      },
+      {
+       "data": "2025-05-30",
+       "fornecedor": "Associacao De Defesa A Vida E Ao Meio Ambiente",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 50000
+      },
+      {
+       "data": "2025-05-30",
+       "fornecedor": "Associacao Do Projeto De Assentamento Deus Te Ama",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 49800
+      },
+      {
+       "data": "2025-05-23",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "00031869",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Chamada de Projetos] Divulgação (Imprensa, Social Media, etc)",
+       "valor": 731.93
+      },
+      {
+       "data": "2025-05-23",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "00031869",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Passagens Aéreas",
+       "valor": 3942.65
+      },
+      {
+       "data": "2025-05-16",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "032025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 1400
+      },
+      {
+       "data": "2025-05-16",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "042025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 399.38
+      },
+      {
+       "data": "2025-04-29",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "31412",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Chamada de Projetos] Divulgação (Imprensa, Social Media, etc)",
+       "valor": 612
+      },
+      {
+       "data": "2025-03-31",
+       "fornecedor": "Rodrigo Martins Rabelo",
+       "doc": "022025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Chamada de Projetos] Divulgação (Imprensa, Social Media, etc)",
+       "valor": 835
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Agenda Publica",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 400000
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_ADMFIN_02",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Administração Financeira",
+       "valor": 25000
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 7200
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 6652.8
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 3241.48
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 10500
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Agente Territorial",
+       "valor": 10000
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 4200
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF_02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 17000.01
+      },
+      {
+       "data": "2025-03-14",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_TXADM_02",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 8183.37
+      },
+      {
+       "data": "2025-03-07",
+       "fornecedor": "Instituto Fronteiras Do Desenvolvimento",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 384615.38
+      },
+      {
+       "data": "2025-03-07",
+       "fornecedor": "Instituto Fronteiras Do Desenvolvimento",
+       "doc": "012025",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Suzano para Investimento em Projetos",
+       "valor": 15384.62
+      },
+      {
+       "data": "2025-03-05",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "30572",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 560.33
+      },
+      {
+       "data": "2025-02-25",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "30661",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 433.8
+      },
+      {
+       "data": "2025-02-19",
+       "fornecedor": "Ministerio Da Fazenda",
+       "doc": "50000310264186",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Atividades",
+       "valor": 476.19
+      },
+      {
+       "data": "2025-02-19",
+       "fornecedor": "Marilia De Jesus Da Silva E Sousa",
+       "doc": "5147",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Relatório Parcial de Parceria",
+       "valor": 261.9
+      },
+      {
+       "data": "2025-02-19",
+       "fornecedor": "Marilia De Jesus Da Silva E Sousa",
+       "doc": "5147",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Relatório Parcial de Parceria",
+       "valor": 119.05
+      },
+      {
+       "data": "2025-02-07",
+       "fornecedor": "Rodrigo Martins Rabelo",
+       "doc": "012025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 730.56
+      },
+      {
+       "data": "2025-01-17",
+       "fornecedor": "Loyanne Lima Feitosa",
+       "doc": "01",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Relatório Parcial de Parceria",
+       "valor": 2000
+      },
+      {
+       "data": "2025-01-17",
+       "fornecedor": "Marilia De Jesus Da Silva E Sousa",
+       "doc": "5147",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Relatório Parcial de Parceria",
+       "valor": 2380.95
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_TXADM2024",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Taxa Administrativa PPA",
+       "valor": 11624.56
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF",
+       "rubrica": "Equipe PPA",
+       "atividade": "Secretário Executivo",
+       "valor": 3241.49
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 6652.8
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenador de Projetos",
+       "valor": 10500
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 7200
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Comunicação",
+       "valor": 4200
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_STAFF",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista de Captação de Recursos",
+       "valor": 4250
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_ATIVIDADES",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Mapeamento de Informações",
+       "valor": 6000
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_ATIVIDADES",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 10000
+      },
+      {
+       "data": "2024-12-27",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "SUZANO_ADMFIN",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Administração Financeira",
+       "valor": 17500
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Criterio Grafico Digital & Servico Ltda",
+       "doc": "6034",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 30
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Activa Impressoes Digitais Ltda",
+       "doc": "1981",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 143
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "18285317",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 41.8
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "18345409",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 35.05
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Serveng Transportes Ltda",
+       "doc": "23648",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 46.5
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Nogueira Supermercado Ltda",
+       "doc": "39024",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 38
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Posterus Supermercados Ltda",
+       "doc": "84870",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 15.73
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Posterus Supermercados Ltda",
+       "doc": "84870",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 39.6
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Localiza Rent A Car Sa",
+       "doc": "280037",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 295.46
+      },
+      {
+       "data": "2024-11-29",
+       "fornecedor": "Localiza Rent A Car Sa",
+       "doc": "5920",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 71.37
+      },
+      {
+       "data": "2024-11-22",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "29535",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1209.63
+      },
+      {
+       "data": "2024-11-18",
+       "fornecedor": "Ministerio Da Fazenda",
+       "doc": "07.16.24318.4878812-1",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 386.66
+      },
+      {
+       "data": "2024-11-18",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "4631",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 212.67
+      },
+      {
+       "data": "2024-11-08",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "29319",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 10111.1
+      },
+      {
+       "data": "2024-11-08",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "29319",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 90.06
+      },
+      {
+       "data": "2024-11-08",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "29319",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 4484.8
+      },
+      {
+       "data": "2024-11-08",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "29319",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 247.34
+      },
+      {
+       "data": "2024-11-08",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "4631",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 96.66
+      },
+      {
+       "data": "2024-10-31",
+       "fornecedor": "Sandra Alves De Oliveira 05477899638",
+       "doc": "3167862",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1940
+      },
+      {
+       "data": "2024-10-31",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "4631",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 1933.33
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Wander Macolly M. Rodrigues",
+       "doc": "20241031_01",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Darci Batista Dos Santos",
+       "doc": "20241031_02",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Raimundo Nonato Marques Santana",
+       "doc": "20241031_03",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Edileuza Barros Souza",
+       "doc": "20241031_04",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Jose Marques Moreaes Dias",
+       "doc": "20241031_05",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Agnaldo Peres Souza",
+       "doc": "20241031_06",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Francisco Vieira Da Silva",
+       "doc": "20241031_07",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Gilson Conceição Leite",
+       "doc": "20241031_08",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2024-10-28",
+       "fornecedor": "Rodrigo Martins Rabelo",
+       "doc": "01",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 2085
+      },
+      {
+       "data": "2024-10-25",
+       "fornecedor": "Gabriel Maximo Da Silva",
+       "doc": "02",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1755
+      },
+      {
+       "data": "2024-10-25",
+       "fornecedor": "Tássia Ribeiro Cobucci",
+       "doc": "02",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1440
+      },
+      {
+       "data": "2024-10-25",
+       "fornecedor": "Juliana De Lima Splendore",
+       "doc": "01",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Encontro de Governança Local",
+       "valor": 1440
+      }
+     ],
+     "marcos": [
+      {
+       "data": "2024-07-22",
+       "ev": "1ª parcela recebida",
+       "kind": "rec",
+       "done": true
+      },
+      {
+       "data": "2025-01-20",
+       "ev": "2ª parcela recebida",
+       "kind": "rec",
+       "done": true
+      },
+      {
+       "data": "2025-04-01",
+       "ev": "3ª parcela recebida",
+       "kind": "rec",
+       "done": true
+      },
+      {
+       "data": "2025-09-01",
+       "ev": "4ª parcela recebida",
+       "kind": "rec",
+       "done": true
+      }
+     ],
      "tributo": {
       "orcado": 0,
       "realizado": 0
@@ -309,6 +2046,250 @@ const DADOS = {
      "real_total": 65822.49,
      "instituicoes": [],
      "inst_total": 0,
+     "despesas": [
+      {
+       "data": "2026-07-17",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606-03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 86.43
+      },
+      {
+       "data": "2026-07-17",
+       "fornecedor": "Ministerio Da Fazenda",
+       "doc": "07.16.26197.6022913-9",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 680.95
+      },
+      {
+       "data": "2026-07-17",
+       "fornecedor": "Bahia Secretaria Da Fazenda",
+       "doc": "1949782228",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Impostos ITCMD",
+       "valor": 31747.5
+      },
+      {
+       "data": "2026-07-17",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606 - 01",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 144.04
+      },
+      {
+       "data": "2026-07-17",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606- 02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 144.04
+      },
+      {
+       "data": "2026-07-10",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606-03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 39.29
+      },
+      {
+       "data": "2026-07-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37741",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 645
+      },
+      {
+       "data": "2026-07-10",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606 - 01",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 65.48
+      },
+      {
+       "data": "2026-07-10",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606- 02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 65.48
+      },
+      {
+       "data": "2026-07-03",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606-03",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 785.72
+      },
+      {
+       "data": "2026-07-03",
+       "fornecedor": "L M Comercio E Servicos Ltda",
+       "doc": "4",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 4500
+      },
+      {
+       "data": "2026-06-25",
+       "fornecedor": "Sandra Alves De Oliveira 05477899638",
+       "doc": "15",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1000
+      },
+      {
+       "data": "2026-06-25",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606- 02",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1309.52
+      },
+      {
+       "data": "2026-06-23",
+       "fornecedor": "Posterus Supermercados Ltda",
+       "doc": "254648",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 299.9
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "202606",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1250
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Arte Copia Ltda",
+       "doc": "202606",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 45
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37553",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 4164
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37553",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 9336.33
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Sandra Alves De Oliveira 05477899638",
+       "doc": "14",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1000
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "M M Santos Casa De Eventos",
+       "doc": "9",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 300
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Criterio Grafico Digital & Servico Ltda",
+       "doc": "8206",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1455
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Wilma De Oliveira Rincon",
+       "doc": "202606 - 01",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1309.52
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Lidiane Maria Galvão Araujo",
+       "doc": "062026",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 550
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Tássia Ribeiro Cobucci",
+       "doc": "202606",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1250
+      },
+      {
+       "data": "2026-06-19",
+       "fornecedor": "Janiele Pereira Da Silva",
+       "doc": "202606",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 1250
+      },
+      {
+       "data": "2026-06-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37307",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 364.95
+      },
+      {
+       "data": "2026-06-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT37307",
+       "rubrica": "Equipe PPA",
+       "atividade": "Rendimento Financeiro - Ciclo I",
+       "valor": 2034.34
+      }
+     ],
+     "marcos": [
+      {
+       "data": "2026-06-22",
+       "ev": "1ª parcela recebida (R$765.000)",
+       "kind": "rec",
+       "done": true
+      },
+      {
+       "data": "2027-01-31",
+       "ev": "Prazo PC 2ª parcela → libera R$600.000",
+       "kind": "pc",
+       "done": false
+      },
+      {
+       "data": "2027-07-31",
+       "ev": "Prazo PC 3ª parcela → libera R$600.000",
+       "kind": "pc",
+       "done": false
+      },
+      {
+       "data": "2028-01-31",
+       "ev": "Prazo PC 4ª parcela → libera R$135.000",
+       "kind": "pc",
+       "done": false
+      }
+     ],
      "tributo": {
       "orcado": 80000.0,
       "realizado": 31747.5
@@ -419,6 +2400,864 @@ const DADOS = {
       }
      ],
      "inst_total": 440422.0,
+     "despesas": [
+      {
+       "data": "2026-07-15",
+       "fornecedor": "Associacao De Desenvolvimento E Estabilidade Social E Economica De Breu Branco - Adesebb",
+       "doc": "072026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 37200
+      },
+      {
+       "data": "2026-07-15",
+       "fornecedor": "Ong Social Passos Do Futuro - Ospf",
+       "doc": "072026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 38000
+      },
+      {
+       "data": "2026-07-03",
+       "fornecedor": "Associacao Dos Feirantes Da Agricultura Familiar De Breu Branco",
+       "doc": "072026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 37712
+      },
+      {
+       "data": "2026-05-22",
+       "fornecedor": "Uber Do Brasil Tecnologia Ltda.",
+       "doc": "052026",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 197.01
+      },
+      {
+       "data": "2026-05-08",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT36804",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 2126.85
+      },
+      {
+       "data": "2026-04-24",
+       "fornecedor": "R E Rocha Comercio E Servicos Ltda",
+       "doc": "3911",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 298.8
+      },
+      {
+       "data": "2026-04-24",
+       "fornecedor": "R E Rocha Comercio E Servicos Ltda",
+       "doc": "16.179",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 55
+      },
+      {
+       "data": "2026-04-24",
+       "fornecedor": "Uber Do Brasil Tecnologia Ltda.",
+       "doc": "5B1BD6CD9E",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 234
+      },
+      {
+       "data": "2026-04-24",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT36644",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 1459.8
+      },
+      {
+       "data": "2026-04-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT36424",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 1708
+      },
+      {
+       "data": "2026-04-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT36424",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Passagens Aéreas",
+       "valor": 6091.18
+      },
+      {
+       "data": "2026-04-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT36421",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 148
+      },
+      {
+       "data": "2026-03-31",
+       "fornecedor": "Uber Do Brasil Tecnologia Ltda.",
+       "doc": "3B753AACF2",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 253.25
+      },
+      {
+       "data": "2026-03-25",
+       "fornecedor": "Posto Avenida Belem Ltda",
+       "doc": "115699",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 237.51
+      },
+      {
+       "data": "2026-03-25",
+       "fornecedor": "Rota Auto Posto Combustivel Ltda",
+       "doc": "67515",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 85.36
+      },
+      {
+       "data": "2026-03-25",
+       "fornecedor": "Posto Cristo Rei Ltda",
+       "doc": "145225",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 239.02
+      },
+      {
+       "data": "2026-03-25",
+       "fornecedor": "Noemi Bitto Siqueira",
+       "doc": "032026",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 1036.65
+      },
+      {
+       "data": "2026-03-25",
+       "fornecedor": "Noemi Bitto Siqueira",
+       "doc": "032026",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 513.35
+      },
+      {
+       "data": "2026-03-25",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "032026",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 1550
+      },
+      {
+       "data": "2026-03-11",
+       "fornecedor": "Associacao De Desenvolvimento E Estabilidade Social E Economica De Breu Branco - Adesebb",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 55800
+      },
+      {
+       "data": "2026-03-09",
+       "fornecedor": "Associacao Dos Feirantes Da Agricultura Familiar De Breu Branco",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 56568
+      },
+      {
+       "data": "2026-03-09",
+       "fornecedor": "Associacao Dos Meliponicultores E Apicultores De Breu Branco",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 53382
+      },
+      {
+       "data": "2026-03-09",
+       "fornecedor": "Associacao Dos Pequenos Agricultores Joao Canuto Ii",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 56760
+      },
+      {
+       "data": "2026-03-09",
+       "fornecedor": "Ong Social Passos Do Futuro - Ospf",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 57000
+      },
+      {
+       "data": "2026-03-09",
+       "fornecedor": "Uniao Dos Torpedos De Educacao Infantil E Juvenil Do Para",
+       "doc": "032026",
+       "rubrica": "Investimento em Projetos",
+       "atividade": "Recursos Dow para Investimento em Projetos",
+       "valor": 48000
+      },
+      {
+       "data": "2026-02-20",
+       "fornecedor": "99 Tecnologia Ltda",
+       "doc": "75552943",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 18.6
+      },
+      {
+       "data": "2026-02-20",
+       "fornecedor": "99 Tecnologia Ltda",
+       "doc": "75553129",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 13.1
+      },
+      {
+       "data": "2026-02-20",
+       "fornecedor": "Black River Cafe Ltda",
+       "doc": "307102",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 82.49
+      },
+      {
+       "data": "2026-02-20",
+       "fornecedor": "Raia Drogasil S/A",
+       "doc": "27542",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 12.59
+      },
+      {
+       "data": "2026-02-10",
+       "fornecedor": "Uber Do Brasil Tecnologia Ltda.",
+       "doc": "598E37CAF3",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 545.39
+      },
+      {
+       "data": "2026-02-03",
+       "fornecedor": "Bardouro Restaurante E Alimentos Ltda",
+       "doc": "4306",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 88.04
+      },
+      {
+       "data": "2026-01-30",
+       "fornecedor": "Jf Negocios Cervejeiros Ltda",
+       "doc": "1250",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Desenho do Conceito e Id. Visual do Programa",
+       "valor": 116.6
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "Vivian Fernanda Carneiro Martins 74517945200",
+       "doc": "62",
+       "rubrica": "Equipe PPA",
+       "atividade": "Consultor Regional",
+       "valor": 2753.3
+      },
+      {
+       "data": "2025-12-10",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034796",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 1251.17
+      },
+      {
+       "data": "2025-12-05",
+       "fornecedor": "Julia Tampellini Bia Pimenta",
+       "doc": "107",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 939.75
+      },
+      {
+       "data": "2025-12-05",
+       "fornecedor": "Janiele Pereira Da Silva",
+       "doc": "74",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente Administrativo Financeiro",
+       "valor": 148.99
+      },
+      {
+       "data": "2025-12-05",
+       "fornecedor": "Tassia Da Silva Ribeiro - Eireli",
+       "doc": "139",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 1464.34
+      },
+      {
+       "data": "2025-12-05",
+       "fornecedor": "Augusto Cesar Ascendino Correa",
+       "doc": "129",
+       "rubrica": "Equipe PPA",
+       "atividade": "Diretor Executivo",
+       "valor": 731.78
+      },
+      {
+       "data": "2025-12-05",
+       "fornecedor": "Territorialis Consultoria Ltda",
+       "doc": "5",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista Territorial",
+       "valor": 1440.28
+      },
+      {
+       "data": "2025-12-05",
+       "fornecedor": "Vivian Fernanda Carneiro Martins 74517945200",
+       "doc": "61",
+       "rubrica": "Equipe PPA",
+       "atividade": "Consultor Regional",
+       "valor": 4786.29
+      },
+      {
+       "data": "2025-12-03",
+       "fornecedor": "Territorialis Consultoria Ltda",
+       "doc": "4",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista Territorial",
+       "valor": 1440.28
+      },
+      {
+       "data": "2025-12-03",
+       "fornecedor": "Augusto Cesar Ascendino Correa",
+       "doc": "131",
+       "rubrica": "Equipe PPA",
+       "atividade": "Diretor Executivo",
+       "valor": 731.78
+      },
+      {
+       "data": "2025-12-03",
+       "fornecedor": "Janiele Pereira Da Silva",
+       "doc": "73",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente Administrativo Financeiro",
+       "valor": 148.99
+      },
+      {
+       "data": "2025-12-03",
+       "fornecedor": "Julia Tampellini Bia Pimenta",
+       "doc": "106",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 939.75
+      },
+      {
+       "data": "2025-12-03",
+       "fornecedor": "Tassia Da Silva Ribeiro - Eireli",
+       "doc": "138",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 1464.34
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034591",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 2196.65
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034592",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 575.7
+      },
+      {
+       "data": "2025-11-28",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034593",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 1715.7
+      },
+      {
+       "data": "2025-11-19",
+       "fornecedor": "Tassia Da Silva Ribeiro - Eireli",
+       "doc": "137",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 1464.34
+      },
+      {
+       "data": "2025-11-14",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00034338",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 4045.6
+      },
+      {
+       "data": "2025-11-05",
+       "fornecedor": "Janiele Pereira Da Silva",
+       "doc": "72",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente Administrativo Financeiro",
+       "valor": 148.99
+      },
+      {
+       "data": "2025-11-05",
+       "fornecedor": "Augusto Cesar Ascendino Correa",
+       "doc": "128",
+       "rubrica": "Equipe PPA",
+       "atividade": "Diretor Executivo",
+       "valor": 731.78
+      },
+      {
+       "data": "2025-11-05",
+       "fornecedor": "Julia Tampellini Bia Pimenta",
+       "doc": "105",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 939.75
+      },
+      {
+       "data": "2025-11-05",
+       "fornecedor": "Territorialis Consultoria Ltda",
+       "doc": "3",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista Territorial",
+       "valor": 1440.28
+      },
+      {
+       "data": "2025-11-05",
+       "fornecedor": "Vivian Fernanda Carneiro Martins 74517945200",
+       "doc": "60",
+       "rubrica": "Equipe PPA",
+       "atividade": "Consultor Regional",
+       "valor": 8500
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "22813065",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 40.38
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Posto Do Bolinha Ltda",
+       "doc": "641659",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 152.41
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Corte Real Combustiveis Ltda",
+       "doc": "1313381",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 273.05
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Luzia Santos Dos Reis",
+       "doc": "112025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 50
+      },
+      {
+       "data": "2025-10-31",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "102025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 2000
+      },
+      {
+       "data": "2025-10-10",
+       "fornecedor": "Amanda Araújo Soares",
+       "doc": "66",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenadora de Comunicação",
+       "valor": 845.07
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Tassia Da Silva Ribeiro - Eireli",
+       "doc": "136",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 1464.34
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Janiele Pereira Da Silva",
+       "doc": "71",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente Administrativo Financeiro",
+       "valor": 148.99
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Amanda Araújo Soares",
+       "doc": "65",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenadora de Comunicação",
+       "valor": 281.69
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Augusto Cesar Ascendino Correa",
+       "doc": "127",
+       "rubrica": "Equipe PPA",
+       "atividade": "Diretor Executivo",
+       "valor": 731.78
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Julia Tampellini Bia Pimenta",
+       "doc": "104",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 939.75
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Territorialis Consultoria Ltda",
+       "doc": "2",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista Territorial",
+       "valor": 5942.54
+      },
+      {
+       "data": "2025-10-03",
+       "fornecedor": "Vivian Fernanda Carneiro Martins 74517945200",
+       "doc": "59",
+       "rubrica": "Equipe PPA",
+       "atividade": "Consultor Regional",
+       "valor": 8500
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033697",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 771
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "21958687",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 61.09
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Supermercados Do Norte Do Brasil Ltda",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 29.09
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Rota Do Para S.A",
+       "doc": "07604001920003100265351757109933 ",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 12
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Rota Do Para S.A",
+       "doc": "07604001910003100314701757112735",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 12
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Info Center Informática - Laiane Feitosa Santos 02917609290",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 32
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Bia Armarinho E Papelaria Ltda",
+       "doc": "561",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 59.5
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Comercial Sul Do Norte Ltda",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 19
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "N Altmann",
+       "doc": "4589",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Alimentação",
+       "valor": 163.35
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Rota Do Para S.A",
+       "doc": "07604001910005200233901756658439",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "",
+       "valor": 12
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Rota Do Para S.A",
+       "doc": "07604001920005200185061756663612",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "",
+       "valor": 12
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Supermercados Do Norte Do Brasil Ltda",
+       "doc": "25339",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "",
+       "valor": 18.92
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "C.V. Mendonca Fotocopias",
+       "doc": "4619",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 256
+      },
+      {
+       "data": "2025-09-19",
+       "fornecedor": "Empresa De Onibus Passaro Marron S/A.",
+       "doc": "21869450 ",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "",
+       "valor": 40.33
+      },
+      {
+       "data": "2025-09-12",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033455",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 228
+      },
+      {
+       "data": "2025-09-09",
+       "fornecedor": "Claudia Lima Eventos Ltda",
+       "doc": "77",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 8459
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033456",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 575.7
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Territorialis Consultoria Ltda",
+       "doc": "25",
+       "rubrica": "Equipe PPA",
+       "atividade": "Analista Territorial",
+       "valor": 7020
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Vivian Fernanda Carneiro Martins 74517945200",
+       "doc": "58",
+       "rubrica": "Equipe PPA",
+       "atividade": "Consultor Regional",
+       "valor": 8500
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Julia Tampellini Bia Pimenta",
+       "doc": "103",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Operações",
+       "valor": 7518.03
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Janiele Pereira Da Silva",
+       "doc": "70",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente Administrativo Financeiro",
+       "valor": 1191.96
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Augusto Cesar Ascendino Correa",
+       "doc": "126",
+       "rubrica": "Equipe PPA",
+       "atividade": "Diretor Executivo",
+       "valor": 5854.25
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Amanda Araújo Soares",
+       "doc": "64",
+       "rubrica": "Equipe PPA",
+       "atividade": "Coordenadora de Comunicação",
+       "valor": 2253.55
+      },
+      {
+       "data": "2025-09-05",
+       "fornecedor": "Tassia Da Silva Ribeiro - Eireli",
+       "doc": "135",
+       "rubrica": "Equipe PPA",
+       "atividade": "Gerente de Projetos",
+       "valor": 11714.71
+      },
+      {
+       "data": "2025-09-03",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "DOW_CONTRIB_012025",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Contribuição para Parceria PPA",
+       "valor": 21033.73
+      },
+      {
+       "data": "2025-09-03",
+       "fornecedor": "Associacao Plataforma Parceiros Pela Amazonia",
+       "doc": "DOW_TAXA ADM_012025",
+       "rubrica": "Custos Administrativos",
+       "atividade": "Administração Financeira",
+       "valor": 28589.48
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Luzia Santos Dos Reis",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 50
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Marlene Gomes Araujo",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 50
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Jocinaldo Rocha Lopes",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 50
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Jair Gomes Da Silva",
+       "doc": "092025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 50
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Posto Do Bolinha Ltda",
+       "doc": "624365",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Viagens de Avaliação",
+       "valor": 131.87
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "A Costa Empreendimentos Ltda",
+       "doc": "156983",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 209.08
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "A Costa Empreendimentos Ltda",
+       "doc": "136306",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Combustível",
+       "valor": 247.31
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "R3 Viagens Turismo E Eventos Ltda",
+       "doc": "FT00033403",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Viagens de Avaliação",
+       "valor": 6878.79
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Gabriel Maximo Da Silva",
+       "doc": "082025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Viagens de Avaliação",
+       "valor": 1700
+      },
+      {
+       "data": "2025-08-29",
+       "fornecedor": "Vivian Fernanda Carneiro Martins",
+       "doc": "082025",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Viagens de Avaliação",
+       "valor": 1700
+      },
+      {
+       "data": "2025-08-22",
+       "fornecedor": "Hotel Aline Ltda",
+       "doc": "3817",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "Hospedagem",
+       "valor": 1550.01
+      },
+      {
+       "data": "2025-08-22",
+       "fornecedor": "Claudia Lima Eventos Ltda",
+       "doc": "76",
+       "rubrica": "Atividades e Viagens",
+       "atividade": "[Workshop Local] Ideação",
+       "valor": 3879
+      }
+     ],
+     "marcos": [
+      {
+       "data": "2025-06-12",
+       "ev": "Grant recebido (R$773.822)",
+       "kind": "rec",
+       "done": true
+      }
+     ],
      "tributo": {
       "orcado": 0,
       "realizado": 0
@@ -497,6 +3336,15 @@ const DADOS = {
      "real_total": 0.0,
      "instituicoes": [],
      "inst_total": 0,
+     "despesas": [],
+     "marcos": [
+      {
+       "data": "2026-06-03",
+       "ev": "Grant recebido (R$1.000.920)",
+       "kind": "rec",
+       "done": true
+      }
+     ],
      "tributo": {
       "orcado": 0,
       "realizado": 0
@@ -533,6 +3381,10 @@ const BRL0=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumF
 const dt=s=>s?s.split('-').reverse().join('/'):'—';
 document.getElementById('ger').textContent='atualizado em '+DADOS.gerado.split(' ')[0].split('-').reverse().join('/');
 function pctColor(p){if(p===null)return 'var(--azul)';if(p>105)return 'var(--erro)';if(p>100)return 'var(--alerta)';return 'var(--verde-medio)';}
+function marcoStatus(m){ if(m.done) return ['ok','Cumprido'];
+ const today=new Date(); today.setHours(0,0,0,0); const d=new Date(m.data+'T00:00:00');
+ const days=(d-today)/86400000;
+ if(days<0) return ['over','Atrasado']; if(days<=60) return ['soon','Próximo']; return ['fut','Futuro']; }
 function bannerHTML(pd){
  const logo = pd.logo && LOGOS[pd.logo] ? `<img src="${LOGOS[pd.logo]}" alt="">` : `<div class="dowtag">DOW</div>`;
  return `<div class="banner">${logo}<div class="pl"><div class="p1">Financiador · Programa</div><div class="p2">${pd.programa}</div></div></div>`;
@@ -547,6 +3399,13 @@ function cycleHTML(cd){
    <div class="kpi"><div class="lab">Executado</div><div class="val">${BRL0(cd.real_total)}</div><div class="pct" style="color:var(--azul)">${pctExec}% do recebido</div></div>
    <div class="kpi"><div class="lab">Recebido a executar</div><div class="val">${BRL0(saldoExec)}</div></div>
   </div>`;
+ // Prazos & marcos
+ if(cd.marcos&&cd.marcos.length){
+  k+=`<div class="sec-t">Prazos &amp; marcos</div><div class="tl">`;
+  cd.marcos.forEach(m=>{const [s,lab]=marcoStatus(m);
+   k+=`<div class="tli ${s}"><span class="tldot"></span><b>${dt(m.data)}</b>&nbsp; ${m.ev}<span class="tag">${lab}</span></div>`;});
+  k+=`</div>`;
+ }
  k+=`<div class="sec-t">Recebimento das parcelas</div><table><thead><tr><th>Parcela</th><th class="r">Previsto</th><th>Data prev.</th><th class="r">Recebido</th><th>Data receb.</th><th>Status</th></tr></thead><tbody>`;
  cd.recebimento.forEach(r=>{const st=r.rec>0?'<span class="st ok">Recebido</span>':'<span class="st wait">A receber</span>';
   k+=`<tr><td><b>${r.parc}</b>${r.nota?`<div style="font-size:11px;color:#8a938c">${r.nota}</div>`:''}</td><td class="r num">${BRL(r.prev)}</td><td>${dt(r.dprev)}</td><td class="r num">${r.rec>0?BRL(r.rec):'—'}</td><td>${dt(r.drec)}</td><td>${st}</td></tr>`;});
@@ -569,7 +3428,14 @@ function cycleHTML(cd){
  else{k+=`<div class="mini"><div class="lab">Contrapartida da PPA</div><div class="v">—</div><div class="s">não prevista no contrato</div></div>`;}
  k+=`</div><div><div class="sec-t">Conformidade &amp; prazos</div><ul class="chk">`;
  cd.conformidade.forEach(c=>{k+=`<li class="${c.st}">${c.txt}</li>`;});
- k+=`</ul></div></div></div>`; return k;
+ k+=`</ul></div></div>`;
+ // Detalhamento de despesas (rastreabilidade)
+ if(cd.despesas&&cd.despesas.length){
+  k+=`<details class="desp"><summary>Detalhamento de despesas — ${cd.despesas.length} lançamentos (rastreabilidade)</summary><table><thead><tr><th>Data</th><th>Fornecedor</th><th>Documento</th><th>Rubrica</th><th>Atividade</th><th class="r">Valor</th></tr></thead><tbody>`;
+  cd.despesas.forEach(e=>{k+=`<tr><td>${dt(e.data)}</td><td>${e.fornecedor}</td><td>${e.doc||'—'}</td><td>${e.rubrica}</td><td>${e.atividade||'—'}</td><td class="r num">${BRL(e.valor)}</td></tr>`;});
+  k+=`</tbody></table></details>`;
+ }
+ k+=`</div>`; return k;
 }
 function render(partner){
  currentPartner=partner;
@@ -579,81 +3445,53 @@ function render(partner){
 }
 const tabs=document.getElementById('tabs');
 Object.keys(DADOS.parceiros).forEach((p,idx)=>{const b=document.createElement('button');b.className='tab'+(idx===0?' on':'');b.dataset.p=p;b.innerHTML=`<span class="dot" style="background:${DADOS.parceiros[p].cor}"></span>${p}`;b.onclick=()=>render(p);tabs.appendChild(b);});
-document.getElementById('foot').innerHTML=`<b>Fontes:</b> recebimentos e execução via Ongsys (contasReceber / contasPagar, apenas baixas informadas); orçamentos das planilhas de cada contrato; cronogramas dos Termos Suzano (Programa Paricá) e do Grant Dow/CAF America (Programa Ybá).<br><b>Premissas:</b> separação Ciclo I / Ciclo II por data de pagamento com corte em <b>01/06/2026</b> (CCs 99218-1 Suzano e 99183-7 CAF America são compartilhados entre ciclos).<br><b>Pontos de atenção:</b> (1) o Ongsys registra as parcelas 2–4 do Ciclo II Suzano como 3× R$525.000 (R$2.340.000), divergente do contrato (R$600k/600k/135k = R$2.100.000) — o cronograma segue o contrato. (2) O orçamento do Ciclo II Suzano inclui R$67.196,61 de rendimento do Ciclo I reinvestido. (3) Anuidade/membresia recebida em conta institucional (99345-2), fora do CC do projeto.<div class="footcred"><span><b>Associação PPA</b> · Gestão de Contratos de Parceria · Dados: API Ongsys (coleta automatizada)</span><span>Atualizado em '+DADOS.gerado.split(' ')[0].split('-').reverse().join('/')+'</span></div>`;
+document.getElementById('foot').innerHTML=`<b>Fontes:</b> recebimentos e execução via Ongsys (contasReceber / contasPagar, apenas baixas informadas); orçamentos das planilhas de cada contrato; cronogramas dos Termos Suzano (Programa Paricá) e do Grant Dow/CAF America (Programa Ybá).<br><b>Premissas:</b> separação Ciclo I / Ciclo II por data de pagamento com corte em <b>01/06/2026</b> (CCs 99218-1 Suzano e 99183-7 CAF America são compartilhados entre ciclos; a execução da Dow está atribuída ao Ciclo I até o Ciclo II iniciar).<br><b>Pontos de atenção:</b> (1) o Ongsys registra as parcelas 2–4 do Ciclo II Suzano como 3× R$525.000 (R$2.340.000), divergente do contrato (R$600k/600k/135k = R$2.100.000) — o cronograma segue o contrato. (2) O orçamento do Ciclo II Suzano inclui R$67.196,61 de rendimento do Ciclo I reinvestido. (3) Anuidade/membresia recebida em conta institucional (99345-2), fora do CC do projeto.<div class="footcred"><span><b>Associação PPA</b> · Gestão de Contratos de Parceria · Dados: API Ongsys (coleta automatizada)</span><span>Atualizado em ${DADOS.gerado.split(' ')[0].split('-').reverse().join('/')}</span></div>`;
 render(currentPartner);
-
-// ---------- EXPORTAÇÃO CLIENT-SIDE ----------
+// ---------- EXPORTAÇÃO ----------
 const money=n=>(n||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 function exportXLSX(){
  if(typeof XLSX==='undefined'){alert('Biblioteca de planilha ainda carregando. Tente novamente em instantes.');return;}
  const wb=XLSX.utils.book_new();
- let res=[["PPA · Gestão de Contratos de Parceria — Resumo"],["Atualizado em "+DADOS.gerado.split(' ')[0]],[],
-  ["Parceiro","Ciclo","Contratado","Recebido","Executado","Recebido a executar"]];
+ let res=[["PPA · Gestão de Contratos de Parceria — Resumo"],["Atualizado em "+DADOS.gerado.split(' ')[0]],[],["Parceiro","Ciclo","Contratado","Recebido","Executado","Recebido a executar"]];
  let gc=0,gr=0,ge=0;
- for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];
-   res.push([p,"Ciclo "+c,cd.info.valor,cd.rec_total,cd.real_total,cd.rec_total-cd.real_total]);gc+=cd.info.valor;gr+=cd.rec_total;ge+=cd.real_total;}}
+ for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];res.push([p,"Ciclo "+c,cd.info.valor,cd.rec_total,cd.real_total,cd.rec_total-cd.real_total]);gc+=cd.info.valor;gr+=cd.rec_total;ge+=cd.real_total;}}
  res.push(["TOTAL GERAL","",gc,gr,ge,gr-ge]);
- const wsR=XLSX.utils.aoa_to_sheet(res); wsR['!cols']=[{wch:16},{wch:10},{wch:16},{wch:16},{wch:16},{wch:18}];
- XLSX.utils.book_append_sheet(wb,wsR,"Resumo");
+ const wsR=XLSX.utils.aoa_to_sheet(res); wsR['!cols']=[{wch:16},{wch:10},{wch:16},{wch:16},{wch:16},{wch:18}]; XLSX.utils.book_append_sheet(wb,wsR,"Resumo");
  let rec=[["Parceiro","Ciclo","Parcela","Previsto","Data prevista","Recebido","Data recebimento","Status","Observação"]];
- for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];
-   cd.recebimento.forEach(x=>rec.push([p,"Ciclo "+c,x.parc,x.prev,dt(x.dprev),x.rec||"",dt(x.drec),x.rec>0?"Recebido":"A receber",x.nota||""]));}}
- const wsRec=XLSX.utils.aoa_to_sheet(rec); wsRec['!cols']=[{wch:14},{wch:9},{wch:9},{wch:15},{wch:13},{wch:15},{wch:15},{wch:11},{wch:42}];
- XLSX.utils.book_append_sheet(wb,wsRec,"Recebimentos");
+ for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];cd.recebimento.forEach(x=>rec.push([p,"Ciclo "+c,x.parc,x.prev,dt(x.dprev),x.rec||"",dt(x.drec),x.rec>0?"Recebido":"A receber",x.nota||""]));}}
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(rec),"Recebimentos");
  let oxr=[["Parceiro","Ciclo","Rubrica / Área","Orçado","Realizado","Saldo","% Execução"]];
- for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];
-   cd.areas.forEach(a=>oxr.push([p,"Ciclo "+c,a.area,a.orcado,a.realizado,a.saldo,a.pct!=null?a.pct/100:""]));
-   oxr.push([p,"Ciclo "+c,"Subtotal",cd.orc_total,cd.real_total,cd.orc_total-cd.real_total,""]);}}
- const wsO=XLSX.utils.aoa_to_sheet(oxr); wsO['!cols']=[{wch:14},{wch:9},{wch:30},{wch:16},{wch:16},{wch:16},{wch:12}];
- XLSX.utils.book_append_sheet(wb,wsO,"Orçado x Realizado");
+ for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];cd.areas.forEach(a=>oxr.push([p,"Ciclo "+c,a.area,a.orcado,a.realizado,a.saldo,a.pct!=null?a.pct/100:""]));oxr.push([p,"Ciclo "+c,"Subtotal",cd.orc_total,cd.real_total,cd.orc_total-cd.real_total,""]);}}
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(oxr),"Orçado x Realizado");
  let inv=[["Parceiro","Ciclo","Instituição beneficiária","Valor repassado","% do investimento"]];
- for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];
-   if(!cd.instituicoes.length)continue;
-   cd.instituicoes.forEach(x=>inv.push([p,"Ciclo "+c,x.nome,x.valor,cd.inst_total?x.valor/cd.inst_total:0]));
-   inv.push([p,"Ciclo "+c,"Total",cd.inst_total,1]);}}
- const wsI=XLSX.utils.aoa_to_sheet(inv); wsI['!cols']=[{wch:14},{wch:9},{wch:52},{wch:18},{wch:16}];
- XLSX.utils.book_append_sheet(wb,wsI,"Investimento Instituições");
+ for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];if(!cd.instituicoes.length)continue;cd.instituicoes.forEach(x=>inv.push([p,"Ciclo "+c,x.nome,x.valor,cd.inst_total?x.valor/cd.inst_total:0]));inv.push([p,"Ciclo "+c,"Total",cd.inst_total,1]);}}
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(inv),"Investimento Instituições");
+ let des=[["Parceiro","Ciclo","Data","Fornecedor","Documento","Rubrica","Atividade","Valor"]];
+ for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];(cd.despesas||[]).forEach(e=>des.push([p,"Ciclo "+c,dt(e.data),e.fornecedor,e.doc,e.rubrica,e.atividade,e.valor]));}}
+ const wsD=XLSX.utils.aoa_to_sheet(des); wsD['!cols']=[{wch:12},{wch:9},{wch:12},{wch:36},{wch:14},{wch:22},{wch:34},{wch:14}]; XLSX.utils.book_append_sheet(wb,wsD,"Despesas (razão)");
  XLSX.writeFile(wb,"Gestao_Contratos_PPA.xlsx");
 }
 function exportPDF(partner){
  if(!window.jspdf){alert('Biblioteca de PDF ainda carregando. Tente novamente em instantes.');return;}
- const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'pt',format:'a4'});
- const pd=DADOS.parceiros[partner]; const M=40; let y=44;
- doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(0,60,55);
- doc.text('Relatório Executivo de Prestação de Contas — '+partner,M,y); y+=15;
- doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(120);
- doc.text('PPA · '+pd.programa+' · atualizado em '+dt(DADOS.gerado.split(' ')[0]),M,y);
+ const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'pt',format:'a4'}); const pd=DADOS.parceiros[partner]; const M=40; let y=44;
+ doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(0,60,55); doc.text('Relatório Executivo de Prestação de Contas — '+partner,M,y); y+=15;
+ doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(120); doc.text('PPA · '+pd.programa+' · atualizado em '+dt(DADOS.gerado.split(' ')[0]),M,y);
  doc.setDrawColor(178,200,75); doc.setLineWidth(2); doc.line(M,y+6,555,y+6); y+=18;
- const head=[[0,60,55]];
  for(const c of ['I','II']){ const cd=pd.ciclos[c]; if(!cd)continue; const i=cd.info;
    if(y>720){doc.addPage();y=44;}
    doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(0,60,55); doc.text(i.nome,M,y); y+=13;
    doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(90);
    const pr=i.valor?Math.round(100*cd.rec_total/i.valor):0, pe=cd.rec_total?Math.round(100*cd.real_total/cd.rec_total):0;
    doc.text('Contratado R$ '+money(i.valor)+'  ·  Recebido R$ '+money(cd.rec_total)+' ('+pr+'%)  ·  Executado R$ '+money(cd.real_total)+' ('+pe+'% do recebido)',M,y); y+=6;
-   doc.autoTable({startY:y+4,head:[['Parcela','Previsto','Data prev.','Recebido','Data receb.','Status']],
-     body:cd.recebimento.map(x=>[x.parc,'R$ '+money(x.prev),dt(x.dprev),x.rec>0?'R$ '+money(x.rec):'—',dt(x.drec),x.rec>0?'Recebido':'A receber']),
-     foot:[['Total','R$ '+money(cd.prev_total),'','R$ '+money(cd.rec_total),'','']],
-     styles:{fontSize:8,cellPadding:3},headStyles:{fillColor:[0,60,55]},footStyles:{fillColor:[244,246,244],textColor:[30,40,35],fontStyle:'bold'},
-     columnStyles:{1:{halign:'right'},3:{halign:'right'}},margin:{left:M,right:M}});
+   doc.autoTable({startY:y+4,head:[['Parcela','Previsto','Data prev.','Recebido','Data receb.','Status']],body:cd.recebimento.map(x=>[x.parc,'R$ '+money(x.prev),dt(x.dprev),x.rec>0?'R$ '+money(x.rec):'—',dt(x.drec),x.rec>0?'Recebido':'A receber']),foot:[['Total','R$ '+money(cd.prev_total),'','R$ '+money(cd.rec_total),'','']],styles:{fontSize:8,cellPadding:3},headStyles:{fillColor:[0,60,55]},footStyles:{fillColor:[244,246,244],textColor:[30,40,35],fontStyle:'bold'},columnStyles:{1:{halign:'right'},3:{halign:'right'}},margin:{left:M,right:M}});
    y=doc.lastAutoTable.finalY+12;
    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(73,109,58); doc.text('Orçado × Realizado por rubrica',M,y); y+=2;
-   doc.autoTable({startY:y+4,head:[['Rubrica / Área','Orçado','Realizado','Saldo','% Exec.']],
-     body:cd.areas.map(a=>[a.area,'R$ '+money(a.orcado),'R$ '+money(a.realizado),'R$ '+money(a.saldo),a.pct!=null?a.pct.toFixed(0)+'%':'—']),
-     foot:[['Total','R$ '+money(cd.orc_total),'R$ '+money(cd.real_total),'R$ '+money(cd.orc_total-cd.real_total),(cd.orc_total?Math.round(100*cd.real_total/cd.orc_total):0)+'%']],
-     styles:{fontSize:8,cellPadding:3},headStyles:{fillColor:[0,60,55]},footStyles:{fillColor:[244,246,244],textColor:[30,40,35],fontStyle:'bold'},
-     columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'}},margin:{left:M,right:M}});
+   doc.autoTable({startY:y+4,head:[['Rubrica / Área','Orçado','Realizado','Saldo','% Exec.']],body:cd.areas.map(a=>[a.area,'R$ '+money(a.orcado),'R$ '+money(a.realizado),'R$ '+money(a.saldo),a.pct!=null?a.pct.toFixed(0)+'%':'—']),foot:[['Total','R$ '+money(cd.orc_total),'R$ '+money(cd.real_total),'R$ '+money(cd.orc_total-cd.real_total),(cd.orc_total?Math.round(100*cd.real_total/cd.orc_total):0)+'%']],styles:{fontSize:8,cellPadding:3},headStyles:{fillColor:[0,60,55]},footStyles:{fillColor:[244,246,244],textColor:[30,40,35],fontStyle:'bold'},columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'}},margin:{left:M,right:M}});
    y=doc.lastAutoTable.finalY+12;
-   if(cd.instituicoes.length){
-     if(y>680){doc.addPage();y=44;}
+   if(cd.instituicoes.length){ if(y>680){doc.addPage();y=44;}
      doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(73,109,58); doc.text('Investimento em Projetos — repasse por instituição',M,y); y+=2;
-     doc.autoTable({startY:y+4,head:[['Instituição beneficiária','Valor repassado','%']],
-       body:cd.instituicoes.map(x=>[x.nome,'R$ '+money(x.valor),(100*x.valor/cd.inst_total).toFixed(1)+'%']),
-       foot:[['Total ('+cd.instituicoes.length+' instituições)','R$ '+money(cd.inst_total),'100%']],
-       styles:{fontSize:8,cellPadding:3},headStyles:{fillColor:[0,60,55]},footStyles:{fillColor:[244,246,244],textColor:[30,40,35],fontStyle:'bold'},
-       columnStyles:{1:{halign:'right'},2:{halign:'right'}},margin:{left:M,right:M}});
-     y=doc.lastAutoTable.finalY+12;
-   }
+     doc.autoTable({startY:y+4,head:[['Instituição beneficiária','Valor repassado','%']],body:cd.instituicoes.map(x=>[x.nome,'R$ '+money(x.valor),(100*x.valor/cd.inst_total).toFixed(1)+'%']),foot:[['Total ('+cd.instituicoes.length+' instituições)','R$ '+money(cd.inst_total),'100%']],styles:{fontSize:8,cellPadding:3},headStyles:{fillColor:[0,60,55]},footStyles:{fillColor:[244,246,244],textColor:[30,40,35],fontStyle:'bold'},columnStyles:{1:{halign:'right'},2:{halign:'right'}},margin:{left:M,right:M}});
+     y=doc.lastAutoTable.finalY+12; }
    if(y>700){doc.addPage();y=44;}
    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(73,109,58); doc.text('Tributos, contrapartidas e conformidade',M,y); y+=13;
    doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(40);
