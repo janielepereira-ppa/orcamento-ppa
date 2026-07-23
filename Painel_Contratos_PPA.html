@@ -3422,6 +3422,17 @@ function cycleHTML(cd){
    k+=`<tr><td>${x.nome}</td><td class="r num">${BRL(x.valor)}</td><td><div class="bar-lab"><span></span><b>${pc.toFixed(1)}%</b></div><div class="bar"><span style="width:${100*x.valor/mx}%;background:var(--azul)"></span></div></td></tr>`;});
   k+=`</tbody><tfoot><tr style="font-weight:600"><td>Total repassado (${cd.instituicoes.length} instituições)</td><td class="r num">${BRL(cd.inst_total)}</td><td></td></tr></tfoot></table>`;
  }
+
+ // Para onde foi o recurso — fornecedores e donatários (consolidado)
+ if(cd.despesas&&cd.despesas.length){
+  const ag={};
+  cd.despesas.forEach(e=>{const key=e.fornecedor||'—'; if(!ag[key])ag[key]={total:0,n:0,rub:{},don:false}; ag[key].total+=e.valor; ag[key].n++; ag[key].rub[e.rubrica]=(ag[key].rub[e.rubrica]||0)+e.valor; if(e.rubrica==='Investimento em Projetos')ag[key].don=true;});
+  const rows=Object.entries(ag).map(([nome,v])=>({nome,total:v.total,n:v.n,don:v.don,rub:Object.entries(v.rub).sort((a,b)=>b[1]-a[1])[0][0]})).sort((a,b)=>b.total-a.total);
+  const nd=rows.filter(r=>r.don).length;
+  k+=`<div class="sec-t">Para onde foi o recurso — fornecedores &amp; donatários</div><details class="desp" open><summary>${rows.length} recebedores (${nd} donatários)</summary><table><thead><tr><th>Recebedor</th><th>Tipo</th><th>Rubrica principal</th><th class="r">Nº</th><th class="r">Total recebido</th></tr></thead><tbody>`;
+  rows.forEach(r=>{k+=`<tr><td>${r.nome}</td><td>${r.don?'<span class="st ok">Donatário</span>':'<span class="st" style="background:#e9f1f2;color:#1c5b64">Fornecedor</span>'}</td><td>${r.rub}</td><td class="r num">${r.n}</td><td class="r num">${BRL(r.total)}</td></tr>`;});
+  k+=`</tbody></table></details>`;
+ }
  k+=`<div class="two"><div><div class="sec-t">Tributos &amp; contrapartidas</div>`;
  k+=`<div class="mini" style="margin-bottom:10px"><div class="lab">ITCMD / tributos recolhidos</div><div class="v">${BRL(cd.tributo.realizado)}</div><div class="s">${cd.tributo.orcado?'orçado '+BRL(cd.tributo.orcado):'sem previsão orçada'}</div></div>`;
  if(cd.contrapartida){k+=`<div class="mini"><div class="lab">Contrapartida da PPA</div><div class="v">${BRL(cd.contrapartida.valor)}</div><div class="s">${cd.contrapartida.tipo}</div></div>`;}
@@ -3469,6 +3480,9 @@ function exportXLSX(){
  let des=[["Parceiro","Ciclo","Data","Fornecedor","Documento","Rubrica","Atividade","Valor"]];
  for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];(cd.despesas||[]).forEach(e=>des.push([p,"Ciclo "+c,dt(e.data),e.fornecedor,e.doc,e.rubrica,e.atividade,e.valor]));}}
  const wsD=XLSX.utils.aoa_to_sheet(des); wsD['!cols']=[{wch:12},{wch:9},{wch:12},{wch:36},{wch:14},{wch:22},{wch:34},{wch:14}]; XLSX.utils.book_append_sheet(wb,wsD,"Despesas (razão)");
+ let forn=[["Parceiro","Ciclo","Recebedor","Tipo","Rubrica principal","Nº lançamentos","Total recebido"]];
+ for(const p in DADOS.parceiros){const pd=DADOS.parceiros[p];for(const c in pd.ciclos){const cd=pd.ciclos[c];const ag={};(cd.despesas||[]).forEach(e=>{const kk=e.fornecedor||'—'; if(!ag[kk])ag[kk]={t:0,n:0,rub:{},don:false}; ag[kk].t+=e.valor;ag[kk].n++;ag[kk].rub[e.rubrica]=(ag[kk].rub[e.rubrica]||0)+e.valor; if(e.rubrica==='Investimento em Projetos')ag[kk].don=true;});Object.entries(ag).sort((a,b)=>b[1].t-a[1].t).forEach(([nome,v])=>forn.push([p,"Ciclo "+c,nome,v.don?'Donatário':'Fornecedor',Object.entries(v.rub).sort((x,y)=>y[1]-x[1])[0][0],v.n,v.t]));}}
+ const wsF=XLSX.utils.aoa_to_sheet(forn); wsF['!cols']=[{wch:14},{wch:9},{wch:40},{wch:12},{wch:24},{wch:8},{wch:16}]; XLSX.utils.book_append_sheet(wb,wsF,"Fornecedores e Donatários");
  XLSX.writeFile(wb,"Gestao_Contratos_PPA.xlsx");
 }
 function exportPDF(partner){
