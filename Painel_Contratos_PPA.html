@@ -79,6 +79,8 @@ details.desp>summary::before{content:"\25B8 ";color:var(--verde-lima)}
 details.desp[open]>summary::before{content:"\25BE "}
 details.desp table{font-size:12px}
 details.desp td{padding:6px 8px}
+.lead{font-size:13px;color:var(--texto);background:#eaf4f5;border-left:3px solid var(--azul);padding:10px 14px;border-radius:8px;margin:0 0 12px}
+.lead b{color:var(--verde-escuro)}
 footer{font-size:12px;color:#6b776f;line-height:1.7;margin-top:30px;padding-top:18px;border-top:1px solid var(--borda)}
 footer b{color:var(--verde-escuro)}
 .footcred{margin-top:16px;padding-top:14px;border-top:1px solid var(--borda);font-size:12px;color:#7a857d;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -3416,11 +3418,15 @@ function cycleHTML(cd){
  const pt=cd.orc_total?100*cd.real_total/cd.orc_total:0;
  k+=`</tbody><tfoot><tr style="font-weight:600"><td>Total</td><td class="r num">${BRL(cd.orc_total)}</td><td class="r num">${BRL(cd.real_total)}</td><td class="r num">${BRL(cd.orc_total-cd.real_total)}</td><td><div class="bar-lab"><span></span><b>${pt.toFixed(0)}%</b></div><div class="bar"><span style="width:${Math.min(pt,100)}%;background:var(--verde-escuro)"></span></div></td></tr></tfoot></table>`;
  if(cd.instituicoes.length){
-  k+=`<div class="sec-t">Investimento em Projetos — repasse por instituição beneficiária</div><table><thead><tr><th>Instituição</th><th class="r">Valor repassado</th><th style="width:160px">% do investimento</th></tr></thead><tbody>`;
+  const dmap={};
+  (cd.despesas||[]).filter(e=>e.rubrica==='Investimento em Projetos').forEach(e=>{const kk=e.fornecedor; if(!dmap[kk])dmap[kk]={n:0,min:'9999-99-99',max:'0'}; dmap[kk].n++; if(e.data<dmap[kk].min)dmap[kk].min=e.data; if(e.data>dmap[kk].max)dmap[kk].max=e.data;});
+  k+=`<div class="sec-t">Donatários — organizações que transformam o território</div>`;
+  k+=`<p class="lead"><b>${cd.instituicoes.length} organizações locais</b> apoiadas diretamente · <b>${BRL(cd.inst_total)}</b> repassados para execução no território do programa. São os donatários que realizam a transformação socioambiental na ponta.</p>`;
+  k+=`<table><thead><tr><th>Donatário</th><th class="r">Repasses</th><th>Período</th><th class="r">Valor recebido</th><th style="width:150px">% do investimento</th></tr></thead><tbody>`;
   const mx=Math.max(...cd.instituicoes.map(x=>x.valor));
-  cd.instituicoes.forEach(x=>{const pc=cd.inst_total?100*x.valor/cd.inst_total:0;
-   k+=`<tr><td>${x.nome}</td><td class="r num">${BRL(x.valor)}</td><td><div class="bar-lab"><span></span><b>${pc.toFixed(1)}%</b></div><div class="bar"><span style="width:${100*x.valor/mx}%;background:var(--azul)"></span></div></td></tr>`;});
-  k+=`</tbody><tfoot><tr style="font-weight:600"><td>Total repassado (${cd.instituicoes.length} instituições)</td><td class="r num">${BRL(cd.inst_total)}</td><td></td></tr></tfoot></table>`;
+  cd.instituicoes.forEach(x=>{const pc=cd.inst_total?100*x.valor/cd.inst_total:0; const info=dmap[x.nome]||{n:'—',min:null,max:null}; const per=info.min?(info.min===info.max?dt(info.min):dt(info.min)+' – '+dt(info.max)):'—';
+   k+=`<tr><td><b>${x.nome}</b></td><td class="r num">${info.n}</td><td style="font-size:12px;color:#6b776f">${per}</td><td class="r num">${BRL(x.valor)}</td><td><div class="bar-lab"><span></span><b>${pc.toFixed(1)}%</b></div><div class="bar"><span style="width:${100*x.valor/mx}%;background:var(--azul)"></span></div></td></tr>`;});
+  k+=`</tbody><tfoot><tr style="font-weight:600"><td>Total repassado aos donatários (${cd.instituicoes.length})</td><td></td><td></td><td class="r num">${BRL(cd.inst_total)}</td><td></td></tr></tfoot></table>`;
  }
 
  // Para onde foi o recurso — fornecedores e donatários (consolidado)
