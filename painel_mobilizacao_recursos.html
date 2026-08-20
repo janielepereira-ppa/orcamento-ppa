@@ -13,7 +13,7 @@
   --cr-bg:#FDECEA;--cr:#B91C1C;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-height:100vh}
+body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-height:100vh;padding-bottom:70px}
 
 .topo{background:var(--vd);padding:1.5rem 2rem 1.25rem;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem}
 .topo-esq{display:flex;flex-direction:column;gap:6px}
@@ -50,8 +50,6 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .range-btn{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;padding:5px 14px;border-radius:6px;border:1px solid var(--vd);background:var(--vd);color:#fff;cursor:pointer;transition:opacity .15s}
 .range-btn:hover{opacity:.85}
 
-.abas-wrap{background:var(--br);padding:0 2rem;border-bottom:1px solid var(--bo)}
-
 .destaques-wrap{padding:1.25rem 2rem;background:#F8F9FB;border-bottom:1px solid var(--bo)}
 .destaques-titulo{font-size:11px;font-weight:600;color:var(--ct);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.75rem}
 .banner-econ{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:10px;margin-bottom:12px}
@@ -73,6 +71,15 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .ritmo-marca{position:absolute;top:-3px;width:2px;height:12px;background:var(--tx)}
 .ritmo-fill{height:6px;border-radius:3px}
 
+.banner-meta{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:10px;margin-bottom:14px}
+.banner-meta.pos{background:#EBF3F8;border:1px solid #A9CFE0}
+.banner-meta.neg{background:var(--at-bg);border:1px solid #F0D28A}
+.banner-meta.neutro{background:var(--cb);border:1px solid var(--bo)}
+.banner-meta .banner-icon{font-size:22px;flex-shrink:0}
+.banner-meta.pos .banner-txt-principal{color:var(--az)}
+.banner-meta.neg .banner-txt-principal{color:var(--at)}
+.banner-meta.neutro .banner-txt-principal{color:var(--ct)}
+
 .td-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .td-col{background:var(--br);border:1px solid var(--bo);border-radius:10px;padding:.9rem 1rem}
 .td-titulo{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
@@ -82,15 +89,6 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .td-item-nome{color:var(--tx);flex:1;padding-right:8px}
 .td-item-valor{font-weight:600;white-space:nowrap}
 .td-vazio{font-size:11.5px;color:var(--ct);font-style:italic;padding:6px 0}
-
-.banner-meta{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:10px;margin-bottom:14px}
-.banner-meta.pos{background:#EBF3F8;border:1px solid #A9CFE0}
-.banner-meta.neg{background:var(--at-bg);border:1px solid #F0D28A}
-.banner-meta.neutro{background:var(--cb);border:1px solid var(--bo)}
-.banner-meta .banner-icon{font-size:22px;flex-shrink:0}
-.banner-meta.pos .banner-txt-principal{color:var(--az)}
-.banner-meta.neg .banner-txt-principal{color:var(--at)}
-.banner-meta.neutro .banner-txt-principal{color:var(--ct)}
 
 .ranking-wrap{background:var(--br);border:1px solid var(--bo);border-radius:10px;padding:1rem 1.1rem}
 .ranking-titulo{font-size:11px;font-weight:600;color:var(--vd);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
@@ -103,24 +101,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .ranking-barra-fill{height:7px;border-radius:3px;transition:width .3s}
 .ranking-saldo-valor{font-size:12.5px;font-weight:600;white-space:nowrap;min-width:90px;text-align:right}
 
-.chk-item{margin-right:8px;cursor:pointer;width:14px;height:14px;vertical-align:middle;accent-color:var(--vd)}
-.forn-linha{display:flex;align-items:center}
-
-.barra-selecao{position:fixed;left:0;right:0;bottom:0;background:var(--vd);color:#fff;padding:12px 2rem;
-  display:none;align-items:center;gap:14px;flex-wrap:wrap;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
-.barra-selecao.aberta{display:flex}
-.barra-sel-info{font-size:13px;font-weight:600}
-.barra-sel-info .num{color:var(--vl)}
-.barra-sel-nome{flex:1;min-width:180px}
-.barra-sel-nome input{width:100%;font-family:'Poppins',sans-serif;font-size:12px;padding:7px 10px;border-radius:6px;border:none;background:rgba(255,255,255,.12);color:#fff}
-.barra-sel-nome input::placeholder{color:rgba(255,255,255,.5)}
-.barra-sel-btn{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:6px;border:none;cursor:pointer;white-space:nowrap}
-.barra-sel-btn.baixar{background:var(--vl);color:var(--vd)}
-.barra-sel-btn.baixar:hover{opacity:.9}
-.barra-sel-btn.limpar{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3)}
-.barra-sel-btn.limpar:hover{color:#fff;border-color:#fff}
-@media(max-width:700px){.barra-selecao{padding:10px 1rem;flex-direction:column;align-items:stretch}}
-
+.abas-wrap{background:var(--br);padding:0 2rem;border-bottom:1px solid var(--bo)}
 .abas{display:flex}
 .aba{font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;padding:12px 20px;cursor:pointer;border:none;background:none;color:var(--ct);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
 .aba.ativa{color:var(--vd);border-bottom-color:var(--vd)}
@@ -150,6 +131,8 @@ thead th:first-child{text-align:left;padding-left:16px}
 .tr-neto td:first-child{text-align:left}
 .tr-neto.vis{display:table-row}
 .forn-nome{font-weight:500;color:var(--tx);font-size:12px}
+.mes-tag{display:inline-block;font-size:10px;background:var(--cb);padding:1px 6px;border-radius:3px;color:var(--ct);font-weight:500}
+
 .tt-hist{position:relative;display:inline-flex;align-items:center;gap:5px;cursor:help;border-bottom:1px dotted var(--ct)}
 .tt-icon{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;background:var(--cb);color:var(--ct);font-size:9px;font-style:normal;flex-shrink:0}
 .tt-hist:hover .tt-icon{background:var(--az);color:#fff}
@@ -165,7 +148,24 @@ thead th:first-child{text-align:left;padding-left:16px}
   content:'';position:absolute;left:10px;bottom:calc(100% + 3px);
   border:5px solid transparent;border-top-color:var(--vd);z-index:80;
 }
-.mes-tag{display:inline-block;font-size:10px;background:var(--cb);padding:1px 6px;border-radius:3px;color:var(--ct);font-weight:500}
+
+.chk-item{margin-right:8px;cursor:pointer;width:14px;height:14px;vertical-align:middle;accent-color:var(--vd)}
+.forn-linha{display:flex;align-items:center}
+
+.barra-selecao{position:fixed;left:0;right:0;bottom:0;background:var(--vd);color:#fff;padding:12px 2rem;
+  display:none;align-items:center;gap:14px;flex-wrap:wrap;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+.barra-selecao.aberta{display:flex}
+.barra-sel-info{font-size:13px;font-weight:600}
+.barra-sel-info .num{color:var(--vl)}
+.barra-sel-nome{flex:1;min-width:180px}
+.barra-sel-nome input{width:100%;font-family:'Poppins',sans-serif;font-size:12px;padding:7px 10px;border-radius:6px;border:none;background:rgba(255,255,255,.12);color:#fff}
+.barra-sel-nome input::placeholder{color:rgba(255,255,255,.5)}
+.barra-sel-btn{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:6px;border:none;cursor:pointer;white-space:nowrap}
+.barra-sel-btn.baixar{background:var(--vl);color:var(--vd)}
+.barra-sel-btn.baixar:hover{opacity:.9}
+.barra-sel-btn.limpar{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3)}
+.barra-sel-btn.limpar:hover{color:#fff;border-color:#fff}
+@media(max-width:700px){.barra-selecao{padding:10px 1rem;flex-direction:column;align-items:stretch}}
 
 .cod{display:inline-block;font-size:10px;font-weight:600;color:var(--az);background:#EAF5F7;padding:1px 6px;border-radius:3px;margin-right:6px;font-family:monospace}
 
@@ -191,7 +191,9 @@ thead th:first-child{text-align:left;padding-left:16px}
 
 @media(max-width:700px){
   .cards{grid-template-columns:repeat(2,1fr)}
-  .topo,.cards-wrap,.filtro-wrap,.abas-wrap,.corpo{padding-left:1rem;padding-right:1rem}
+  .dest-grid{grid-template-columns:1fr}
+  .td-grid{grid-template-columns:1fr}
+  .topo,.cards-wrap,.filtro-wrap,.abas-wrap,.corpo,.destaques-wrap{padding-left:1rem;padding-right:1rem}
 }
 </style>
 </head>
@@ -309,9 +311,16 @@ thead th:first-child{text-align:left;padding-left:16px}
   </div>
   <div class="nota">
     <strong>Associação PPA</strong> · Gerência Administrativa e Financeira · Dados: API Ongsys (coleta automatizada)<br>
-    Orçamento institucional aprovado 2026 · Atualizado em julho/2026<br>
+    Orçamento institucional aprovado 2026 · Atualizado em agosto/2026<br>
     Desenvolvido por Janiele Pereira da Silva
   </div>
+</div>
+
+<div class="barra-selecao" id="barra-selecao">
+  <div class="barra-sel-info"><span class="num" id="barra-sel-count">0</span> pagamentos selecionados · Total: <span class="num" id="barra-sel-total">R$ 0,00</span></div>
+  <div class="barra-sel-nome"><input type="text" id="barra-sel-nome-input" placeholder="Nome do evento ou relatório (opcional)"></div>
+  <button class="barra-sel-btn baixar" onclick="baixarPlanilhaSelecao()">⬇ Baixar planilha</button>
+  <button class="barra-sel-btn limpar" onclick="limparSelecao()">Limpar seleção</button>
 </div>
 
 <script>
@@ -393,6 +402,154 @@ function atualizaCards(){
   document.getElementById('c-saldo-sub').textContent=`${(saldo/TOT_ORC_ANUAL*100).toFixed(1)}% ainda disponível`;
   document.getElementById('b-saldo').style.width=Math.min((saldo/TOT_ORC_ANUAL*100),100)+'%';
   atualizaTextoPeriodo();
+}
+
+function buildDestaques(){
+  const totOrcP=ORC.reduce((s,r)=>s+orcPer(r[2]),0);
+  const totRealP=realPer(REAL);
+  const diffP=totOrcP-totRealP;
+  const pctDiffP=totOrcP>0?(diffP/totOrcP*100):0;
+  const bannerEl=document.getElementById('banner-econ');
+  if(totOrcP===0){
+    bannerEl.innerHTML='';
+  } else if(diffP>=0){
+    bannerEl.innerHTML=`<div class="banner-econ pos">
+      <div class="banner-icon">✓</div>
+      <div><div class="banner-txt-principal">Economia de ${fmtR(diffP)} no período (${pctDiffP.toFixed(1)}% abaixo do orçado)</div>
+      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)}</div></div>
+    </div>`;
+  } else {
+    bannerEl.innerHTML=`<div class="banner-econ neg">
+      <div class="banner-icon">⚠</div>
+      <div><div class="banner-txt-principal">Estouro de ${fmtR(Math.abs(diffP))} no período (${Math.abs(pctDiffP).toFixed(1)}% acima do orçado)</div>
+      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)}</div></div>
+    </div>`;
+  }
+
+  const realizadoTotalAno=REAL.reduce((a,l)=>a+l.valor,0);
+  const pctAno=(MES_MAX_DADOS/12*100);
+  const pctExec=TOT_ORC_ANUAL>0?(realizadoTotalAno/TOT_ORC_ANUAL*100):0;
+  const ritmoOk=pctExec<=pctAno;
+
+  const mediaMensal=realizadoTotalAno/MES_MAX_DADOS;
+  const projecaoAnual=mediaMensal*12;
+  const diffProjecao=TOT_ORC_ANUAL-projecaoAnual;
+
+  const mesesRestantes=12-MES_MAX_DADOS;
+  const saldoRestanteAnual=TOT_ORC_ANUAL-realizadoTotalAno;
+  const bannerMetaEl=document.getElementById('banner-meta');
+  if(mesesRestantes<=0){
+    bannerMetaEl.innerHTML=`<div class="banner-meta neutro"><div class="banner-icon">📅</div>
+      <div><div class="banner-txt-principal">Todos os meses do ano já têm dados registrados</div>
+      <div class="banner-txt-sub">Não há meses restantes para projetar ajuste de ritmo.</div></div></div>`;
+  } else if(saldoRestanteAnual<=0){
+    bannerMetaEl.innerHTML=`<div class="banner-meta neg"><div class="banner-icon">⚠</div>
+      <div><div class="banner-txt-principal">Orçamento anual já ultrapassado — sem margem restante</div>
+      <div class="banner-txt-sub">Saldo anual atual: ${fmtR(saldoRestanteAnual)} · Reveja despesas dos próximos ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'}</div></div></div>`;
+  } else {
+    const metaMensal=saldoRestanteAnual/mesesRestantes;
+    if(mediaMensal<=metaMensal){
+      const margem=metaMensal-mediaMensal;
+      bannerMetaEl.innerHTML=`<div class="banner-meta pos"><div class="banner-icon">💡</div>
+        <div><div class="banner-txt-principal">Margem de ${fmtR(margem)}/mês para investir sem sair do orçamento</div>
+        <div class="banner-txt-sub">Ritmo atual: ${fmtR(mediaMensal)}/mês · Meta para fechar no azul: até ${fmtR(metaMensal)}/mês nos próximos ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'}</div></div></div>`;
+    } else {
+      bannerMetaEl.innerHTML=`<div class="banner-meta neg"><div class="banner-icon">🎯</div>
+        <div><div class="banner-txt-principal">Reduza o gasto médio mensal para ${fmtR(metaMensal)} para não estourar o orçamento anual</div>
+        <div class="banner-txt-sub">Ritmo atual: ${fmtR(mediaMensal)}/mês · Faltam ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'} até dezembro</div></div></div>`;
+    }
+  }
+
+  const atvsMapD={};
+  ORC.forEach(r=>{
+    const [atv,,m12]=r;
+    if(!atvsMapD[atv]) atvsMapD[atv]={orc:0,real:0};
+    atvsMapD[atv].orc+=orcPer(m12);
+  });
+  REAL.forEach(l=>{
+    if(l.mes<mesIni||l.mes>mesFim) return;
+    if(!atvsMapD[l.atv]) atvsMapD[l.atv]={orc:0,real:0};
+    atvsMapD[l.atv].real+=l.valor;
+  });
+  let nCriticos=0;
+  const divergencias=[];
+  Object.entries(atvsMapD).forEach(([atv,d])=>{
+    if(d.orc<=0) return;
+    const pct=d.real/d.orc*100;
+    if(pct>=90) nCriticos++;
+    divergencias.push({atv,diff:d.orc-d.real,orc:d.orc,real:d.real});
+  });
+
+  const grid=document.getElementById('dest-grid');
+  grid.innerHTML=`
+    <div class="dest-card">
+      <div class="dest-card-label">Ritmo do ano vs. execução</div>
+      <div class="dest-card-valor" style="color:${ritmoOk?'var(--ok)':'var(--cr)'}">${pctAno.toFixed(0)}% do ano · ${pctExec.toFixed(1)}% executado</div>
+      <div class="ritmo-comp"><div class="ritmo-barra-bg"><div class="ritmo-fill" style="width:${Math.min(pctExec,100)}%;background:${ritmoOk?'var(--ok)':'var(--cr)'}"></div><div class="ritmo-marca" style="left:${Math.min(pctAno,100)}%"></div></div></div>
+      <div class="dest-card-sub">${ritmoOk?'Execução abaixo do ritmo do ano — situação de economia':'Execução acima do ritmo do ano — atenção ao orçamento'}</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-card-label">Projeção de fechamento anual</div>
+      <div class="dest-card-valor" style="color:${diffProjecao>=0?'var(--ok)':'var(--cr)'}">${fmtR(Math.abs(diffProjecao))}</div>
+      <div class="dest-card-sub">${diffProjecao>=0?'Economia projetada até dezembro, mantido o ritmo atual':'Estouro projetado até dezembro, mantido o ritmo atual'} (base: média mensal até ${MESES_NOMES[MES_MAX_DADOS-1]})</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-card-label">Alertas no período</div>
+      <div class="dest-card-valor" style="color:${nCriticos>0?'var(--cr)':'var(--ok)'}">${nCriticos===0?'Nenhum alerta':nCriticos+' '+(nCriticos===1?'atividade crítica':'atividades críticas')}</div>
+      <div class="dest-card-sub">${nCriticos===0?'Nenhuma atividade em execução ≥90% no período':'Atividades com execução ≥90% do orçado — revisar prioridade'}</div>
+    </div>
+  `;
+
+  const comOrc=divergencias.filter(d=>d.orc>0);
+  const economias=[...comOrc].filter(d=>d.diff>0).sort((a,b)=>b.diff-a.diff).slice(0,3);
+  const estouros=[...comOrc].filter(d=>d.diff<0).sort((a,b)=>a.diff-b.diff).slice(0,3);
+
+  const tdGrid=document.getElementById('td-grid');
+  const itemHtml=(d,cor)=>`<div class="td-item"><span class="td-item-nome">${d.atv}</span><span class="td-item-valor" style="color:${cor}">${fmtR(Math.abs(d.diff))}</span></div>`;
+  tdGrid.innerHTML=`
+    <div class="td-col">
+      <div class="td-titulo eco">↓ Maiores economias</div>
+      ${economias.length?economias.map(d=>itemHtml(d,'var(--ok)')).join(''):'<div class="td-vazio">Nenhuma economia relevante no período</div>'}
+    </div>
+    <div class="td-col">
+      <div class="td-titulo est">↑ Maiores estouros</div>
+      ${estouros.length?estouros.map(d=>itemHtml(d,'var(--cr)')).join(''):'<div class="td-vazio">Nenhum estouro no período</div>'}
+    </div>
+  `;
+}
+
+function buildRanking(){
+  const porAtv={};
+  ORC.forEach(r=>{
+    const [atv,,m12]=r;
+    if(!porAtv[atv]) porAtv[atv]={orcAnual:0,real:0};
+    porAtv[atv].orcAnual+=m12.reduce((a,b)=>a+b,0);
+  });
+  REAL.forEach(l=>{
+    if(!porAtv[l.atv]) porAtv[l.atv]={orcAnual:0,real:0};
+    porAtv[l.atv].real+=l.valor;
+  });
+  const lista=Object.entries(porAtv)
+    .map(([atv,d])=>({atv,orcAnual:d.orcAnual,real:d.real,saldo:d.orcAnual-d.real,pct:d.orcAnual>0?(d.real/d.orcAnual*100):0}))
+    .filter(d=>d.orcAnual>0)
+    .sort((a,b)=>b.saldo-a.saldo);
+
+  const el=document.getElementById('ranking-saldo-lista');
+  if(!lista.length){
+    el.innerHTML='<div class="td-vazio">Nenhuma atividade orçada para exibir.</div>';
+    return;
+  }
+  el.innerHTML=lista.map(d=>{
+    const pctDisp=Math.max(0,Math.min(100-d.pct,100));
+    const cor=d.saldo>=0?'var(--ok)':'var(--cr)';
+    return `<div class="ranking-item">
+      <div class="ranking-nome">${d.atv}</div>
+      <div class="ranking-barra-wrap">
+        <div class="ranking-barra-bg"><div class="ranking-barra-fill" style="width:${pctDisp}%;background:${cor}"></div></div>
+        <span class="ranking-saldo-valor" style="color:${cor}">${fmtR(d.saldo)}</span>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function buildAtiv(){
@@ -512,160 +669,6 @@ function buildRub(){
   tb.innerHTML=html;
 }
 
-function buildDestaques(){
-  // 1) Economia/Estouro do período selecionado
-  const totOrcP=ORC.reduce((s,r)=>s+orcPer(r[2]),0);
-  const totRealP=realPer(REAL);
-  const diffP=totOrcP-totRealP;
-  const pctDiffP=totOrcP>0?(diffP/totOrcP*100):0;
-  const bannerEl=document.getElementById('banner-econ');
-  if(totOrcP===0){
-    bannerEl.innerHTML='';
-  } else if(diffP>=0){
-    bannerEl.innerHTML=`<div class="banner-econ pos">
-      <div class="banner-icon">✓</div>
-      <div><div class="banner-txt-principal">Economia de ${fmtR(diffP)} no período (${pctDiffP.toFixed(1)}% abaixo do orçado)</div>
-      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)}</div></div>
-    </div>`;
-  } else {
-    bannerEl.innerHTML=`<div class="banner-econ neg">
-      <div class="banner-icon">⚠</div>
-      <div><div class="banner-txt-principal">Estouro de ${fmtR(Math.abs(diffP))} no período (${Math.abs(pctDiffP).toFixed(1)}% acima do orçado)</div>
-      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)}</div></div>
-    </div>`;
-  }
-
-  // 2) Ritmo do ano vs execução orçamentária (fixo, baseado no último mês com dados)
-  const realizadoTotalAno=REAL.reduce((a,l)=>a+l.valor,0);
-  const pctAno=(MES_MAX_DADOS/12*100);
-  const pctExec=TOT_ORC_ANUAL>0?(realizadoTotalAno/TOT_ORC_ANUAL*100):0;
-  const ritmoOk=pctExec<=pctAno;
-
-  // 3) Projeção de fechamento anual
-  const mediaMensal=realizadoTotalAno/MES_MAX_DADOS;
-  const projecaoAnual=mediaMensal*12;
-  const diffProjecao=TOT_ORC_ANUAL-projecaoAnual;
-
-  // Meta de ajuste acionável para fechar o ano no azul
-  const mesesRestantes=12-MES_MAX_DADOS;
-  const saldoRestanteAnual=TOT_ORC_ANUAL-realizadoTotalAno;
-  const bannerMetaEl=document.getElementById('banner-meta');
-  if(mesesRestantes<=0){
-    bannerMetaEl.innerHTML=`<div class="banner-meta neutro"><div class="banner-icon">📅</div>
-      <div><div class="banner-txt-principal">Todos os meses do ano já têm dados registrados</div>
-      <div class="banner-txt-sub">Não há meses restantes para projetar ajuste de ritmo.</div></div></div>`;
-  } else if(saldoRestanteAnual<=0){
-    bannerMetaEl.innerHTML=`<div class="banner-meta neg"><div class="banner-icon">⚠</div>
-      <div><div class="banner-txt-principal">Orçamento anual já ultrapassado — sem margem restante</div>
-      <div class="banner-txt-sub">Saldo anual atual: ${fmtR(saldoRestanteAnual)} · Reveja despesas dos próximos ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'}</div></div></div>`;
-  } else {
-    const metaMensal=saldoRestanteAnual/mesesRestantes;
-    if(mediaMensal<=metaMensal){
-      const margem=metaMensal-mediaMensal;
-      bannerMetaEl.innerHTML=`<div class="banner-meta pos"><div class="banner-icon">💡</div>
-        <div><div class="banner-txt-principal">Margem de ${fmtR(margem)}/mês para investir sem sair do orçamento</div>
-        <div class="banner-txt-sub">Ritmo atual: ${fmtR(mediaMensal)}/mês · Meta para fechar no azul: até ${fmtR(metaMensal)}/mês nos próximos ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'}</div></div></div>`;
-    } else {
-      bannerMetaEl.innerHTML=`<div class="banner-meta neg"><div class="banner-icon">🎯</div>
-        <div><div class="banner-txt-principal">Reduza o gasto médio mensal para ${fmtR(metaMensal)} para não estourar o orçamento anual</div>
-        <div class="banner-txt-sub">Ritmo atual: ${fmtR(mediaMensal)}/mês · Faltam ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'} até dezembro</div></div></div>`;
-    }
-  }
-
-  // 5) Alerta consolidado de itens críticos (no período selecionado, por atividade)
-  const atvsMapD={};
-  ORC.forEach(r=>{
-    const [atv,,m12]=r;
-    if(!atvsMapD[atv]) atvsMapD[atv]={orc:0,real:0};
-    atvsMapD[atv].orc+=orcPer(m12);
-  });
-  REAL.forEach(l=>{
-    if(l.mes<mesIni||l.mes>mesFim) return;
-    if(!atvsMapD[l.atv]) atvsMapD[l.atv]={orc:0,real:0};
-    atvsMapD[l.atv].real+=l.valor;
-  });
-  let nCriticos=0;
-  const divergencias=[];
-  Object.entries(atvsMapD).forEach(([atv,d])=>{
-    if(d.orc<=0) return;
-    const pct=d.real/d.orc*100;
-    if(pct>=80) nCriticos++;
-    divergencias.push({atv,diff:d.orc-d.real,orc:d.orc,real:d.real});
-  });
-
-  const grid=document.getElementById('dest-grid');
-  grid.innerHTML=`
-    <div class="dest-card">
-      <div class="dest-card-label">Ritmo do ano vs. execução</div>
-      <div class="dest-card-valor" style="color:${ritmoOk?'var(--ok)':'var(--cr)'}">${pctAno.toFixed(0)}% do ano · ${pctExec.toFixed(1)}% executado</div>
-      <div class="ritmo-comp"><div class="ritmo-barra-bg"><div class="ritmo-fill" style="width:${Math.min(pctExec,100)}%;background:${ritmoOk?'var(--ok)':'var(--cr)'}"></div><div class="ritmo-marca" style="left:${Math.min(pctAno,100)}%"></div></div></div>
-      <div class="dest-card-sub">${ritmoOk?'Execução abaixo do ritmo do ano — situação de economia':'Execução acima do ritmo do ano — atenção ao orçamento'}</div>
-    </div>
-    <div class="dest-card">
-      <div class="dest-card-label">Projeção de fechamento anual</div>
-      <div class="dest-card-valor" style="color:${diffProjecao>=0?'var(--ok)':'var(--cr)'}">${fmtR(Math.abs(diffProjecao))}</div>
-      <div class="dest-card-sub">${diffProjecao>=0?'Economia projetada até dezembro, mantido o ritmo atual':'Estouro projetado até dezembro, mantido o ritmo atual'} (base: média mensal até ${MESES_NOMES[MES_MAX_DADOS-1]})</div>
-    </div>
-    <div class="dest-card">
-      <div class="dest-card-label">Alertas no período</div>
-      <div class="dest-card-valor" style="color:${nCriticos>0?'var(--cr)':'var(--ok)'}">${nCriticos===0?'Nenhum alerta':nCriticos+' '+(nCriticos===1?'atividade crítica':'atividades críticas')}</div>
-      <div class="dest-card-sub">${nCriticos===0?'Nenhuma atividade em execução ≥90% no período':'Atividades com execução ≥90% do orçado — revisar prioridade'}</div>
-    </div>
-  `;
-
-  // 4) Top divergências
-  const comOrc=divergencias.filter(d=>d.orc>0);
-  const economias=[...comOrc].filter(d=>d.diff>0).sort((a,b)=>b.diff-a.diff).slice(0,3);
-  const estouros=[...comOrc].filter(d=>d.diff<0).sort((a,b)=>a.diff-b.diff).slice(0,3);
-
-  const tdGrid=document.getElementById('td-grid');
-  const itemHtml=(d,cor)=>`<div class="td-item"><span class="td-item-nome">${d.atv}</span><span class="td-item-valor" style="color:${cor}">${fmtR(Math.abs(d.diff))}</span></div>`;
-  tdGrid.innerHTML=`
-    <div class="td-col">
-      <div class="td-titulo eco">↓ Maiores economias</div>
-      ${economias.length?economias.map(d=>itemHtml(d,'var(--ok)')).join(''):'<div class="td-vazio">Nenhuma economia relevante no período</div>'}
-    </div>
-    <div class="td-col">
-      <div class="td-titulo est">↑ Maiores estouros</div>
-      ${estouros.length?estouros.map(d=>itemHtml(d,'var(--cr)')).join(''):'<div class="td-vazio">Nenhum estouro no período</div>'}
-    </div>
-  `;
-}
-
-function buildRanking(){
-  const porAtv={};
-  ORC.forEach(r=>{
-    const [atv,,m12]=r;
-    if(!porAtv[atv]) porAtv[atv]={orcAnual:0,real:0};
-    porAtv[atv].orcAnual+=m12.reduce((a,b)=>a+b,0);
-  });
-  REAL.forEach(l=>{
-    if(!porAtv[l.atv]) porAtv[l.atv]={orcAnual:0,real:0};
-    porAtv[l.atv].real+=l.valor;
-  });
-  const lista=Object.entries(porAtv)
-    .map(([atv,d])=>({atv,orcAnual:d.orcAnual,real:d.real,saldo:d.orcAnual-d.real,pct:d.orcAnual>0?(d.real/d.orcAnual*100):0}))
-    .filter(d=>d.orcAnual>0)
-    .sort((a,b)=>b.saldo-a.saldo);
-
-  const el=document.getElementById('ranking-saldo-lista');
-  if(!lista.length){
-    el.innerHTML='<div class="td-vazio">Nenhuma atividade orçada para exibir.</div>';
-    return;
-  }
-  el.innerHTML=lista.map(d=>{
-    const pctDisp=Math.max(0,Math.min(100-d.pct,100));
-    const cor=d.saldo>=0?'var(--ok)':'var(--cr)';
-    return `<div class="ranking-item">
-      <div class="ranking-nome">${d.atv}</div>
-      <div class="ranking-barra-wrap">
-        <div class="ranking-barra-bg"><div class="ranking-barra-fill" style="width:${pctDisp}%;background:${cor}"></div></div>
-        <span class="ranking-saldo-valor" style="color:${cor}">${fmtR(d.saldo)}</span>
-      </div>
-    </div>`;
-  }).join('');
-}
-
 function togPai(id){
   const tr=document.getElementById(id);
   tr.classList.toggle('aberto');
@@ -678,12 +681,18 @@ function togPai(id){
     }
   });
 }
+function togFilho(id){
+  const tr=document.getElementById(id);
+  tr.classList.toggle('aberto');
+  const ab=tr.classList.contains('aberto');
+  document.querySelectorAll(`[data-pai="${id}"]`).forEach(el=>el.classList.toggle('vis',ab));
+}
+
 function toggleSelecao(id,marcado){
   if(marcado) SELECIONADOS.add(id);
   else SELECIONADOS.delete(id);
   atualizaBarraSelecao();
 }
-
 function atualizaBarraSelecao(){
   const barra=document.getElementById('barra-selecao');
   if(SELECIONADOS.size===0){
@@ -696,19 +705,16 @@ function atualizaBarraSelecao(){
   document.getElementById('barra-sel-total').textContent=fmtR(total);
   barra.classList.add('aberta');
 }
-
 function limparSelecao(){
   SELECIONADOS.clear();
   document.querySelectorAll('.chk-item').forEach(c=>c.checked=false);
   document.getElementById('barra-sel-nome-input').value='';
   atualizaBarraSelecao();
 }
-
 function baixarPlanilhaSelecao(){
   const itens=REAL.filter(l=>SELECIONADOS.has(l.id)).sort((a,b)=>a.mes-b.mes);
   if(!itens.length) return;
   const nomeRelatorio=(document.getElementById('barra-sel-nome-input').value||'Relatório de Pagamentos').trim();
-
   const escapa=v=>'"'+String(v||'').replace(/"/g,'""')+'"';
   const linhas=[];
   linhas.push(escapa(nomeRelatorio));
@@ -722,7 +728,6 @@ function baixarPlanilhaSelecao(){
   const total=itens.reduce((s,l)=>s+l.valor,0);
   linhas.push('');
   linhas.push([escapa('TOTAL'),'','','',escapa(total.toFixed(2).replace('.',',')),''].join(';'));
-
   const csv='\uFEFF'+linhas.join('\r\n');
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
   const url=URL.createObjectURL(blob);
@@ -735,13 +740,6 @@ function baixarPlanilhaSelecao(){
   URL.revokeObjectURL(url);
 }
 
-function togFilho(id){
-  const tr=document.getElementById(id);
-  tr.classList.toggle('aberto');
-  const ab=tr.classList.contains('aberto');
-  document.querySelectorAll(`[data-pai="${id}"]`).forEach(el=>el.classList.toggle('vis',ab));
-}
-
 function marcarBotaoAtivo(){
   document.querySelectorAll('.mes-btn').forEach(b=>b.classList.remove('ativo'));
   if(mesIni===1 && mesFim===MES_MAX_DADOS){
@@ -751,7 +749,6 @@ function marcarBotaoAtivo(){
     if(btn) btn.classList.add('ativo');
   }
 }
-
 function selAcumulado(){
   mesIni=1; mesFim=MES_MAX_DADOS;
   document.getElementById('sel-de').value=mesIni;
@@ -784,11 +781,4 @@ function mostraAba(id,btn){
 marcarBotaoAtivo();
 atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();
 </script>
-<div class="barra-selecao" id="barra-selecao">
-  <div class="barra-sel-info"><span class="num" id="barra-sel-count">0</span> pagamentos selecionados · Total: <span class="num" id="barra-sel-total">R$ 0,00</span></div>
-  <div class="barra-sel-nome"><input type="text" id="barra-sel-nome-input" placeholder="Nome do evento ou relatório (opcional)"></div>
-  <button class="barra-sel-btn baixar" onclick="baixarPlanilhaSelecao()">⬇ Baixar planilha</button>
-  <button class="barra-sel-btn limpar" onclick="limparSelecao()">Limpar seleção</button>
-</div>
-
 </body></html>
