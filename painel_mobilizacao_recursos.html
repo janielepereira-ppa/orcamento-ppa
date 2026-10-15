@@ -26,7 +26,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .topo-dir p{font-size:11px;color:rgba(255,255,255,.4);font-weight:300}
 
 .cards-wrap{background:var(--vd);padding:0 2rem 1.5rem}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:1rem 1.1rem}
 .card-label{font-size:10px;font-weight:500;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
 .card-valor{font-size:18px;font-weight:600;color:#fff;letter-spacing:-.3px;word-break:break-all}
@@ -61,7 +61,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cb);color:var(--tx);min-h
 .banner-econ.neg .banner-txt-principal{color:var(--cr)}
 .banner-txt-sub{font-size:11.5px;color:var(--ct);margin-top:2px;font-weight:300}
 
-.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:14px}
 .dest-card{background:var(--br);border:1px solid var(--bo);border-radius:10px;padding:.9rem 1rem}
 .dest-card-label{font-size:9.5px;font-weight:600;color:var(--ct);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 .dest-card-valor{font-size:15px;font-weight:600;color:var(--tx)}
@@ -183,6 +183,19 @@ thead th:first-child{text-align:left;padding-left:16px}
 .mini-fill{height:4px;border-radius:2px}
 .pct-txt{font-size:11px;min-width:38px;text-align:right}
 
+.tag-ap{display:inline-block;font-size:10px;background:#EAF5F7;padding:1px 6px;border-radius:3px;color:var(--az);font-weight:600}
+.tr-neto.ap td{background:#F3F9FA}
+.b-venc{background:var(--cr-bg);color:var(--cr)}.b-prev{background:#EAF5F7;color:var(--az)}
+.aprov-txt{font-size:10px;color:var(--ct);margin-left:6px;font-weight:400}
+.proj-wrap{margin-top:12px}
+.proj-box{background:var(--br);border:1px solid var(--bo);border-radius:10px;padding:.9rem 1rem}
+.proj-titulo{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;color:var(--cr)}
+.proj-sub{font-size:11px;color:var(--ct);margin-bottom:8px;line-height:1.5}
+.info-box{background:#EAF5F7;border:1px solid #BFE0E6;border-radius:10px;padding:12px 16px;font-size:12px;color:var(--vd);margin-bottom:12px;line-height:1.6}
+.mes27-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:14px}
+.mes27-card{background:var(--br);border:1px solid var(--bo);border-radius:8px;padding:.7rem .8rem}
+.mes27-card .l{font-size:10px;color:var(--ct);text-transform:uppercase;font-weight:600}
+.mes27-card .v{font-size:14px;font-weight:600;color:var(--vd);margin-top:3px}
 .legenda{display:flex;gap:1.2rem;margin-top:1rem;flex-wrap:wrap}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ct)}
 .leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
@@ -191,6 +204,7 @@ thead th:first-child{text-align:left;padding-left:16px}
 
 @media(max-width:700px){
   .cards{grid-template-columns:repeat(2,1fr)}
+  .tabela-wrap{overflow-x:auto}
   .dest-grid{grid-template-columns:1fr}
   .td-grid{grid-template-columns:1fr}
   .topo,.cards-wrap,.filtro-wrap,.abas-wrap,.corpo,.destaques-wrap{padding-left:1rem;padding-right:1rem}
@@ -232,9 +246,15 @@ thead th:first-child{text-align:left;padding-left:16px}
       <div class="barra-bg"><div class="barra-fill" id="b-real" style="width:0%;background:var(--vl)"></div></div>
     </div>
     <div class="card">
-      <div class="card-label">Saldo disponível</div>
+      <div class="card-label">A pagar (lançado)</div>
+      <div class="card-valor az" id="c-ap">—</div>
+      <div class="card-sub" id="c-ap-sub">Lançado no Ongsys, sem baixa</div>
+      <div class="barra-bg"><div class="barra-fill" id="b-ap" style="width:0%;background:#7CD6E0"></div></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Saldo projetado</div>
       <div class="card-valor" id="c-saldo">—</div>
-      <div class="card-sub" id="c-saldo-sub">Saldo anual</div>
+      <div class="card-sub" id="c-saldo-sub">Orçado − realizado − a pagar</div>
       <div class="barra-bg"><div class="barra-fill" id="b-saldo" style="width:0%;background:rgba(255,255,255,.4)"></div></div>
     </div>
   </div>
@@ -259,10 +279,11 @@ thead th:first-child{text-align:left;padding-left:16px}
   <div class="dest-grid" id="dest-grid"></div>
   <div id="banner-meta"></div>
   <div class="td-grid" id="td-grid"></div>
+  <div class="proj-wrap" id="proj-wrap"></div>
   <div style="height:14px"></div>
   <div class="ranking-wrap">
     <div class="ranking-titulo">📊 Onde Você Ainda Tem Fôlego</div>
-    <div class="ranking-sub">Saldo disponível por atividade (orçado anual − realizado até agora), da maior folga para o maior aperto. Use para decidir onde encaixar uma nova iniciativa sem precisar de remanejamento.</div>
+    <div class="ranking-sub">Saldo projetado por atividade (orçado anual − realizado − a pagar já lançado no Ongsys), da maior folga para o maior aperto. Use para decidir onde encaixar uma nova iniciativa sem precisar de remanejamento.</div>
     <div id="ranking-saldo-lista"></div>
   </div>
 </div>
@@ -271,6 +292,7 @@ thead th:first-child{text-align:left;padding-left:16px}
   <div class="abas">
     <button class="aba ativa" onclick="mostraAba('ativ',this)">Por atividade</button>
     <button class="aba" onclick="mostraAba('rub',this)">Por rubrica</button>
+    <button class="aba" onclick="mostraAba('a27',this)">Compromissos 2027</button>
   </div>
 </div>
 
@@ -280,7 +302,7 @@ thead th:first-child{text-align:left;padding-left:16px}
       <table>
         <thead><tr>
           <th style="width:36%">Atividade / Rubrica / Fornecedor</th>
-          <th>Orçado período</th><th>Realizado</th><th>Saldo</th><th>Execução</th><th>Status</th>
+          <th>Orçado período</th><th>Realizado</th><th>A pagar</th><th>Saldo projetado</th><th>Execução (realizado)</th><th>Status (c/ a pagar)</th>
         </tr></thead>
         <tbody id="tb-ativ"></tbody>
       </table>
@@ -290,6 +312,7 @@ thead th:first-child{text-align:left;padding-left:16px}
       <div class="leg"><div class="leg-dot" style="background:var(--ok)"></div>Normal (até 49%)</div>
       <div class="leg"><div class="leg-dot" style="background:var(--at)"></div>Atenção (50–89%)</div>
       <div class="leg"><div class="leg-dot" style="background:var(--cr)"></div>Crítico (≥90%)</div>
+      <div class="leg"><span class="tag-ap">A pagar</span>&nbsp;Lançado no Ongsys e ainda sem baixa (por mês de vencimento)</div>
     </div>
   </div>
   <div id="painel-rub" class="painel">
@@ -297,7 +320,7 @@ thead th:first-child{text-align:left;padding-left:16px}
       <table>
         <thead><tr>
           <th style="width:36%">Rubrica / Fornecedor</th>
-          <th>Orçado período</th><th>Realizado</th><th>Saldo</th><th>Execução</th><th>Status</th>
+          <th>Orçado período</th><th>Realizado</th><th>A pagar</th><th>Saldo projetado</th><th>Execução (realizado)</th><th>Status (c/ a pagar)</th>
         </tr></thead>
         <tbody id="tb-rub"></tbody>
       </table>
@@ -307,11 +330,17 @@ thead th:first-child{text-align:left;padding-left:16px}
       <div class="leg"><div class="leg-dot" style="background:var(--ok)"></div>Normal (até 49%)</div>
       <div class="leg"><div class="leg-dot" style="background:var(--at)"></div>Atenção (50–89%)</div>
       <div class="leg"><div class="leg-dot" style="background:var(--cr)"></div>Crítico (≥90%)</div>
+      <div class="leg"><span class="tag-ap">A pagar</span>&nbsp;Lançado no Ongsys e ainda sem baixa (por mês de vencimento)</div>
     </div>
+  </div>
+  <div id="painel-a27" class="painel">
+    <div class="info-box"><strong>Compromissos já lançados para 2027 ou depois.</strong> O orçamento 2027 ainda não foi aprovado, então estes valores não são comparados com orçamento. São parcelas de contratos e serviços já cadastradas no Ongsys (sem baixa), por mês de vencimento. Servem de base para o planejamento do próximo ano.</div>
+    <div id="a27-conteudo"></div>
   </div>
   <div class="nota">
     <strong>Associação PPA</strong> · Gerência Administrativa e Financeira · Dados: API Ongsys (coleta automatizada)<br>
     Orçamento institucional aprovado 2026 · Atualizado em outubro/2026<br>
+    A pagar = lançamentos cadastrados no Ongsys ainda sem baixa, por mês de vencimento. Não inclui despesas que ainda não foram lançadas.<br>
     Desenvolvido por Janiele Pereira da Silva
   </div>
 </div>
@@ -326,6 +355,8 @@ thead th:first-child{text-align:left;padding-left:16px}
 <script>
 const ORC=[["Viagens institucionais, advocacy e mobilização de recursos", "3.3. Passagens Aéreas Nacionais", [0.0, 0.0, 1000.0, 0.0, 0.0, 1000.0, 0.0, 0.0, 1000.0, 1000.0, 0.0, 0.0]], ["Viagens institucionais, advocacy e mobilização de recursos", "3.6. Seguro Viagem", [0.0, 0.0, 100.0, 0.0, 0.0, 100.0, 0.0, 0.0, 100.0, 100.0, 0.0, 0.0]], ["Viagens institucionais, advocacy e mobilização de recursos", "3.9. Taxis ou Aplicativos de Transporte", [0.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 350.0]], ["Viagens institucionais, advocacy e mobilização de recursos", "3.11. Hospedagem", [0.0, 0.0, 1200.0, 0.0, 0.0, 1200.0, 0.0, 0.0, 1200.0, 1200.0, 0.0, 0.0]], ["Viagens institucionais, advocacy e mobilização de recursos", "3.13. Ajuda de Custo", [0.0, 0.0, 1000.0, 0.0, 0.0, 1000.0, 0.0, 0.0, 1000.0, 1000.0, 0.0, 0.0]]];
 const REAL=[{"mes": 9, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "LAURA PAOLA PINA PEREZ", "valor": 950, "hist": "Ajuda de custos para Laura Perez participar do evento 3rd MCAA Brazil-Europe Workshop (BREUW)  entre os dias 23 e 25/09/2026, Rio de Janeiro - RJ.", "id": "MOB0"}, {"mes": 9, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "LAURA PAOLA PINA PEREZ", "valor": 19.93, "hist": "Reembolso para Laura Perez com despesas de alimentação e deslocamento para participar do evento Conexão Eurocâmaras ESG 2026, no dia 10/09/2026 em são Paulo.", "id": "MOB1"}, {"mes": 9, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "LAURA PAOLA PINA PEREZ", "valor": 96.58, "hist": "Reembolso para Laura Perez com despesas de alimentação e deslocamento para participar do evento Conexão Eurocâmaras ESG 2026, no dia 10/09/2026 em são Paulo.", "id": "MOB2"}, {"mes": 9, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "LAURA PAOLA PINA PEREZ", "valor": 314.16, "hist": "Reembolso para Laura Perez com despesas de compra de ingresso para participar do evento 4º Festival de Investimentos de Impacto e Negócios Sustentáveis da Amazônia (FIINSA) , entre os dias 03 e 05/11/2026,  em Manaus - AM.", "id": "MOB3"}, {"mes": 9, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "LAURA PAOLA PINA PEREZ", "valor": 274.91, "hist": "Reembolso para Laura Perez de despesas com deslocamento para participação do evento 3rd MCAA Brazil-Europe Workshop (BREUW) entre os dias 23 e 25/09/2026, Rio de Janeiro - RJ.", "id": "MOB4"}, {"mes": 10, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 154.79, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em agosto de 2026.", "id": "MOB5"}, {"mes": 8, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 638.06, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em junho de 2026.", "id": "MOB6"}, {"mes": 6, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 66, "hist": "Seguro viagem para Laura Perez participar do evento Rio Nature & Climate Week entre os dias 02/06/2026 e 05/06/2026, Rio de Janeiro - RJ.", "id": "MOB7"}, {"mes": 5, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "LAURA PAOLA PINA PEREZ", "valor": 1200, "hist": "Ajuda de custos para Laura Perez participar do evento Bioeconomy Amazon Summit 2026 entre os dias 11/05/2026 e 15/05/2026, em Belém - PA.", "id": "MOB8"}, {"mes": 5, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1174.1, "hist": "Despesas de Passagem aérea  para Laura Perez participar do evento Bioeconomy Amazon Summit 2026 entre os dias 11/05/2065 e 15/05/2026, em Belém - PA.", "id": "MOB9"}, {"mes": 5, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.11. Hospedagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 1462.8, "hist": "Seguro Viagem para Fernanda Martins participar de viagem de monitoramento do Programa Paricá - Ciclo 2, entre os dias 10/05/2026 e 16/05/2026, em Belém - PA , E Despesas com Hospedagem e Seguro viagem para Laura Perez e Eduardo Rocha participarem do evento Bioeconomy Amazon Summit 2026 entre os dias 11/05/2065 e 15/05/2026, em Belém - PA.", "id": "MOB10"}, {"mes": 5, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.6. Seguro Viagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 83.8, "hist": "Seguro Viagem para Fernanda Martins participar de viagem de monitoramento do Programa Paricá - Ciclo 2, entre os dias 10/05/2026 e 16/05/2026, em Belém - PA , E Despesas com Hospedagem e Seguro viagem para Laura Perez e Eduardo Rocha participarem do evento Bioeconomy Amazon Summit 2026 entre os dias 11/05/2065 e 15/05/2026, em Belém - PA.", "id": "MOB11"}, {"mes": 5, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "LAURA PAOLA PINA PEREZ", "valor": 500, "hist": "Ajuda de custos para Laura Perez participar do evento Rio Nature & Climate Week  entre os dias 02/06/2026 e 06/06/2026, Rio de Janeiro - RJ.", "id": "MOB12"}, {"mes": 6, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.13. Ajuda de Custo", "forn": "CRITERIO GRAFICO DIGITAL & SERVICO LTDA", "valor": 180, "hist": "Reembolso de despesas de material de Impressão para Laura Pérez com Cartões de visita, no dia 20/05/2026", "id": "MOB13"}, {"mes": 6, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 474.88, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em maio de 2026.", "id": "MOB14"}, {"mes": 6, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.3. Passagens Aéreas Nacionais", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 986.36, "hist": "Passagem aérea para Laura Perez participar do evento Rio Nature & Climate Week entre os dias 02/06/2026 e 06/06/2026, Rio de Janeiro - RJ.  Passagem área para Fernanda Martins, entre os dias 04 e 09/07/2026 , em Manaus - AM", "id": "MOB15"}, {"mes": 4, "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.9. Taxis ou Aplicativos de Transporte", "forn": "UBER DO BRASIL TECNOLOGIA LTDA.", "valor": 119.93, "hist": "Serviço de transporte Uber Corporativo utilizado pela equipe para deslocamentos relacionados às atividades em março de 2026.", "id": "MOB16"}];
+const AP=[{"venc": "2026-10-15", "atv": "Viagens institucionais, advocacy e mobilização de recursos", "rub": "3.11. Hospedagem", "forn": "R3 VIAGENS TURISMO E EVENTOS LTDA", "valor": 846, "aprov": "Autorizado", "hist": "Hospedagem para Eduardo Rocha de atividade de facilitação voltada à experimentação da ferramenta Mural da Bioeconomia, entre os dias 20 e 22/09/2026, em Belém – PA. E Hospedagem para Laura Perez participar do evento 3rd MCAA Brazil-Europe Workshop (BREUW) entre os dias 23 e 25/09/2026, Rio de Janeiro - RJ.", "cod": "CP004555", "mes": 10, "vencido": false, "id": "APMOB0"}];
+const A27=[];
 const MESES_NOMES=["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 const MESES_FULL=["Janeiro", "Fevereiro", "Mar\u00e7o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 const TOT_ORC_ANUAL=15550.00;
@@ -337,6 +368,7 @@ const SELECIONADOS=new Set();
 (function(){
   const row=document.getElementById('meses-row');
   let html='<button class="mes-btn ativo" id="btn-acumulado" onclick="selAcumulado()">Acumulado Jan–'+MESES_NOMES[MES_MAX_DADOS-1]+'</button>';
+  if(MES_MAX_DADOS<12) html+='<button class="mes-btn" id="btn-ano" onclick="selAno()">Ano completo (Jan–Dez)</button>';
   for(let i=0;i<12;i++){
     const semDados=(i+1)>MES_MAX_DADOS;
     html+=`<button class="mes-btn${semDados?' sem-dados':''}" id="btn-mes-${i}" onclick="selMesUnico(${i+1})">${MESES_NOMES[i]}</button>`;
@@ -372,6 +404,26 @@ function orcPer(m12){
 function realPer(lancs){
   return lancs.filter(l=>l.mes>=mesIni && l.mes<=mesFim).reduce((a,l)=>a+l.valor,0);
 }
+function apPer(itens){
+  return itens.filter(l=>l.mes>=mesIni && l.mes<=mesFim).reduce((a,l)=>a+l.valor,0);
+}
+const AP_TOTAL=AP.reduce((a,l)=>a+l.valor,0);
+const REAL_TOTAL=REAL.reduce((a,l)=>a+l.valor,0);
+const AP_VENCIDO=AP.filter(l=>l.vencido).reduce((a,l)=>a+l.valor,0);
+function renderTudo(){atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();build27();}
+function fmtData(iso){const p=(iso||'').split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:'';}
+function statusApHtml(l){return l.vencido?'<span class="badge b-venc">Vencido</span>':'<span class="badge b-prev">A vencer</span>';}
+function apNeto(l,pid,cols){
+  const hist=(l.hist||'').replace(/"/g,'&quot;');
+  const nomeHtml=hist?`<span class="tt-hist" data-hist="${hist}"><span class="tt-icon">i</span>${l.forn}</span>`:l.forn;
+  const aprov=l.aprov?`<span class="aprov-txt">· ${l.aprov}</span>`:'';
+  const sub=cols==='rub'?`<div style="font-size:11px;color:var(--ct)">${l.atv}</div>`:'';
+  return `<tr class="tr-neto ap${cols==='rub'?' vis':''}" data-pai="${pid}">
+    <td><div class="forn-linha"><div><div class="forn-nome">${nomeHtml}${aprov}</div>${sub}</div></div></td>
+    <td></td><td></td><td>${fmtR(l.valor)}</td><td></td>
+    <td><span class="tag-ap">A pagar · venc. ${fmtData(l.venc)}</span></td><td>${statusApHtml(l)}</td>
+  </tr>`;
+}
 
 function atualizaTextoPeriodo(){
   if(mesIni===1 && mesFim===MES_MAX_DADOS) {
@@ -386,7 +438,8 @@ function atualizaTextoPeriodo(){
 function atualizaCards(){
   const totOrcP=ORC.reduce((s,r)=>s+orcPer(r[2]),0);
   const totRealP=realPer(REAL);
-  const saldo=TOT_ORC_ANUAL-REAL.reduce((a,l)=>a+l.valor,0);
+  const totApP=apPer(AP);
+  const saldo=TOT_ORC_ANUAL-REAL_TOTAL-AP_TOTAL;
   const pctR=totOrcP>0?(totRealP/totOrcP*100):0;
   const pctOP=(totOrcP/TOT_ORC_ANUAL*100);
   document.getElementById('c-orc-anual').textContent=fmtR(TOT_ORC_ANUAL);
@@ -398,16 +451,22 @@ function atualizaCards(){
     ? 'Sem pagamentos registrados no período'
     : `${pctR.toFixed(1)}% do orçado no período`;
   document.getElementById('b-real').style.width=Math.min(pctR,100)+'%';
-  document.getElementById('c-saldo').textContent=fmtR(saldo);
-  document.getElementById('c-saldo-sub').textContent=`${(saldo/TOT_ORC_ANUAL*100).toFixed(1)}% ainda disponível`;
-  document.getElementById('b-saldo').style.width=Math.min((saldo/TOT_ORC_ANUAL*100),100)+'%';
+  document.getElementById('c-ap').textContent=fmtR(totApP);
+  document.getElementById('c-ap-sub').textContent=`No ano: ${fmtR(AP_TOTAL)}`+(AP_VENCIDO>0?` · vencido: ${fmtR(AP_VENCIDO)}`:'');
+  document.getElementById('b-ap').style.width=Math.min(TOT_ORC_ANUAL>0?totApP/TOT_ORC_ANUAL*100:0,100)+'%';
+  const cS=document.getElementById('c-saldo');
+  cS.textContent=fmtR(saldo);
+  cS.style.color=saldo<0?'#FF9C94':'#fff';
+  document.getElementById('c-saldo-sub').textContent=saldo<0?`Estouro projetado · sem a pagar: ${fmtR(TOT_ORC_ANUAL-REAL_TOTAL)}`:`${(saldo/TOT_ORC_ANUAL*100).toFixed(1)}% livre · sem a pagar: ${fmtR(TOT_ORC_ANUAL-REAL_TOTAL)}`;
+  document.getElementById('b-saldo').style.width=Math.max(0,Math.min((saldo/TOT_ORC_ANUAL*100),100))+'%';
   atualizaTextoPeriodo();
 }
 
 function buildDestaques(){
   const totOrcP=ORC.reduce((s,r)=>s+orcPer(r[2]),0);
   const totRealP=realPer(REAL);
-  const diffP=totOrcP-totRealP;
+  const totApP=apPer(AP);
+  const diffP=totOrcP-totRealP-totApP;
   const pctDiffP=totOrcP>0?(diffP/totOrcP*100):0;
   const bannerEl=document.getElementById('banner-econ');
   if(totOrcP===0){
@@ -416,17 +475,17 @@ function buildDestaques(){
     bannerEl.innerHTML=`<div class="banner-econ pos">
       <div class="banner-icon">✓</div>
       <div><div class="banner-txt-principal">Economia de ${fmtR(diffP)} no período (${pctDiffP.toFixed(1)}% abaixo do orçado)</div>
-      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)}</div></div>
+      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)} · A pagar: ${fmtR(totApP)}</div></div>
     </div>`;
   } else {
     bannerEl.innerHTML=`<div class="banner-econ neg">
       <div class="banner-icon">⚠</div>
       <div><div class="banner-txt-principal">Estouro de ${fmtR(Math.abs(diffP))} no período (${Math.abs(pctDiffP).toFixed(1)}% acima do orçado)</div>
-      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)}</div></div>
+      <div class="banner-txt-sub">Orçado: ${fmtR(totOrcP)} · Realizado: ${fmtR(totRealP)} · A pagar: ${fmtR(totApP)}</div></div>
     </div>`;
   }
 
-  const realizadoTotalAno=REAL.reduce((a,l)=>a+l.valor,0);
+  const realizadoTotalAno=REAL_TOTAL;
   const pctAno=(MES_MAX_DADOS/12*100);
   const pctExec=TOT_ORC_ANUAL>0?(realizadoTotalAno/TOT_ORC_ANUAL*100):0;
   const ritmoOk=pctExec<=pctAno;
@@ -436,7 +495,7 @@ function buildDestaques(){
   const diffProjecao=TOT_ORC_ANUAL-projecaoAnual;
 
   const mesesRestantes=12-MES_MAX_DADOS;
-  const saldoRestanteAnual=TOT_ORC_ANUAL-realizadoTotalAno;
+  const saldoRestanteAnual=TOT_ORC_ANUAL-realizadoTotalAno-AP_TOTAL;
   const bannerMetaEl=document.getElementById('banner-meta');
   if(mesesRestantes<=0){
     bannerMetaEl.innerHTML=`<div class="banner-meta neutro"><div class="banner-icon">📅</div>
@@ -444,8 +503,8 @@ function buildDestaques(){
       <div class="banner-txt-sub">Não há meses restantes para projetar ajuste de ritmo.</div></div></div>`;
   } else if(saldoRestanteAnual<=0){
     bannerMetaEl.innerHTML=`<div class="banner-meta neg"><div class="banner-icon">⚠</div>
-      <div><div class="banner-txt-principal">Orçamento anual já ultrapassado — sem margem restante</div>
-      <div class="banner-txt-sub">Saldo anual atual: ${fmtR(saldoRestanteAnual)} · Reveja despesas dos próximos ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'}</div></div></div>`;
+      <div><div class="banner-txt-principal">Orçamento anual já ultrapassado considerando o que já foi lançado a pagar</div>
+      <div class="banner-txt-sub">Saldo projetado: ${fmtR(saldoRestanteAnual)} (realizado + a pagar) · Reveja despesas dos próximos ${mesesRestantes} ${mesesRestantes===1?'mês':'meses'}</div></div></div>`;
   } else {
     const metaMensal=saldoRestanteAnual/mesesRestantes;
     if(mediaMensal<=metaMensal){
@@ -467,6 +526,11 @@ function buildDestaques(){
     atvsMapD[atv].orc+=orcPer(m12);
   });
   REAL.forEach(l=>{
+    if(l.mes<mesIni||l.mes>mesFim) return;
+    if(!atvsMapD[l.atv]) atvsMapD[l.atv]={orc:0,real:0};
+    atvsMapD[l.atv].real+=l.valor;
+  });
+  AP.forEach(l=>{
     if(l.mes<mesIni||l.mes>mesFim) return;
     if(!atvsMapD[l.atv]) atvsMapD[l.atv]={orc:0,real:0};
     atvsMapD[l.atv].real+=l.valor;
@@ -494,9 +558,14 @@ function buildDestaques(){
       <div class="dest-card-sub">${diffProjecao>=0?'Economia projetada até dezembro, mantido o ritmo atual':'Estouro projetado até dezembro, mantido o ritmo atual'} (base: média mensal até ${MESES_NOMES[MES_MAX_DADOS-1]})</div>
     </div>
     <div class="dest-card">
-      <div class="dest-card-label">Alertas no período</div>
+      <div class="dest-card-label">Comprometido no ano (realizado + a pagar)</div>
+      <div class="dest-card-valor" style="color:${(REAL_TOTAL+AP_TOTAL)>TOT_ORC_ANUAL?'var(--cr)':'var(--tx)'}">${fmtR(REAL_TOTAL+AP_TOTAL)} · ${TOT_ORC_ANUAL>0?((REAL_TOTAL+AP_TOTAL)/TOT_ORC_ANUAL*100).toFixed(1):'0'}%</div>
+      <div class="dest-card-sub">Realizado ${fmtR(REAL_TOTAL)} + a pagar ${fmtR(AP_TOTAL)} do orçado anual de ${fmtR(TOT_ORC_ANUAL)}</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-card-label">Alertas no período (realizado + a pagar)</div>
       <div class="dest-card-valor" style="color:${nCriticos>0?'var(--cr)':'var(--ok)'}">${nCriticos===0?'Nenhum alerta':nCriticos+' '+(nCriticos===1?'atividade crítica':'atividades críticas')}</div>
-      <div class="dest-card-sub">${nCriticos===0?'Nenhuma atividade em execução ≥90% no período':'Atividades com execução ≥90% do orçado — revisar prioridade'}</div>
+      <div class="dest-card-sub">${nCriticos===0?'Nenhuma atividade com realizado + a pagar ≥90% do orçado no período':'Atividades com realizado + a pagar ≥90% do orçado — revisar prioridade'}</div>
     </div>
   `;
 
@@ -504,6 +573,23 @@ function buildDestaques(){
   const economias=[...comOrc].filter(d=>d.diff>0).sort((a,b)=>b.diff-a.diff).slice(0,3);
   const estouros=[...comOrc].filter(d=>d.diff<0).sort((a,b)=>a.diff-b.diff).slice(0,3);
 
+  const orcAnualAtv={},realAnualAtv={},apAnualAtv={};
+  ORC.forEach(r=>{orcAnualAtv[r[0]]=(orcAnualAtv[r[0]]||0)+r[2].reduce((a,b)=>a+b,0);});
+  REAL.forEach(l=>{realAnualAtv[l.atv]=(realAnualAtv[l.atv]||0)+l.valor;});
+  AP.forEach(l=>{apAnualAtv[l.atv]=(apAnualAtv[l.atv]||0)+l.valor;});
+  const proj=[];
+  Object.keys(orcAnualAtv).forEach(a=>{
+    const o=orcAnualAtv[a]; if(o<=0) return;
+    const r=realAnualAtv[a]||0, p=apAnualAtv[a]||0, t=r+p;
+    if(t>o+0.005 && p>0) proj.push({atv:a,o,r,p,exc:t-o,tipo:'est'});
+    else if(p>0 && r/o<0.9 && t/o>=0.9) proj.push({atv:a,o,r,p,exc:0,tipo:'crit',pct:t/o*100});
+  });
+  proj.sort((a,b)=>b.exc-a.exc);
+  document.getElementById('proj-wrap').innerHTML=proj.length?`<div class="proj-box">
+    <div class="proj-titulo">⏳ Atenção: o que já está a pagar muda o saldo</div>
+    <div class="proj-sub">Atividades com a pagar já lançado no Ongsys que passam do orçado anual ou chegam a 90% ou mais (visão anual, não depende do filtro de meses).</div>
+    ${proj.map(d=>`<div class="td-item"><span class="td-item-nome">${d.atv}<span class="aprov-txt">orçado ${fmtR(d.o)} · realizado ${fmtR(d.r)} · a pagar ${fmtR(d.p)}</span></span><span class="td-item-valor" style="color:var(--cr)">${d.tipo==='est'?'excede '+fmtR(d.exc):d.pct.toFixed(0)+'% do orçado'}</span></div>`).join('')}
+  </div>`:'';
   const tdGrid=document.getElementById('td-grid');
   const itemHtml=(d,cor)=>`<div class="td-item"><span class="td-item-nome">${d.atv}</span><span class="td-item-valor" style="color:${cor}">${fmtR(Math.abs(d.diff))}</span></div>`;
   tdGrid.innerHTML=`
@@ -526,11 +612,15 @@ function buildRanking(){
     porAtv[atv].orcAnual+=m12.reduce((a,b)=>a+b,0);
   });
   REAL.forEach(l=>{
-    if(!porAtv[l.atv]) porAtv[l.atv]={orcAnual:0,real:0};
+    if(!porAtv[l.atv]) porAtv[l.atv]={orcAnual:0,real:0,ap:0};
     porAtv[l.atv].real+=l.valor;
   });
+  AP.forEach(l=>{
+    if(!porAtv[l.atv]) porAtv[l.atv]={orcAnual:0,real:0,ap:0};
+    porAtv[l.atv].ap=(porAtv[l.atv].ap||0)+l.valor;
+  });
   const lista=Object.entries(porAtv)
-    .map(([atv,d])=>({atv,orcAnual:d.orcAnual,real:d.real,saldo:d.orcAnual-d.real,pct:d.orcAnual>0?(d.real/d.orcAnual*100):0}))
+    .map(([atv,d])=>({atv,orcAnual:d.orcAnual,real:d.real,ap:d.ap||0,saldo:d.orcAnual-d.real-(d.ap||0),pct:d.orcAnual>0?((d.real+(d.ap||0))/d.orcAnual*100):0}))
     .filter(d=>d.orcAnual>0)
     .sort((a,b)=>b.saldo-a.saldo);
 
@@ -543,7 +633,7 @@ function buildRanking(){
     const pctDisp=Math.max(0,Math.min(100-d.pct,100));
     const cor=d.saldo>=0?'var(--ok)':'var(--cr)';
     return `<div class="ranking-item">
-      <div class="ranking-nome">${d.atv}</div>
+      <div class="ranking-nome">${d.atv}<span class="aprov-txt">realizado ${fmtR(d.real)}${d.ap>0?' · a pagar '+fmtR(d.ap):''}</span></div>
       <div class="ranking-barra-wrap">
         <div class="ranking-barra-bg"><div class="ranking-barra-fill" style="width:${pctDisp}%;background:${cor}"></div></div>
         <span class="ranking-saldo-valor" style="color:${cor}">${fmtR(d.saldo)}</span>
@@ -560,43 +650,54 @@ function buildAtiv(){
     if(!atvsMap[atv][rub]) atvsMap[atv][rub]={rub,m12:[0,0,0,0,0,0,0,0,0,0,0,0]};
     m12.forEach((v,i)=>atvsMap[atv][rub].m12[i]+=v);
   });
+  [...REAL,...AP].forEach(l=>{
+    if(!atvsMap[l.atv]) atvsMap[l.atv]={};
+    if(!atvsMap[l.atv][l.rub]) atvsMap[l.atv][l.rub]={rub:l.rub,m12:[0,0,0,0,0,0,0,0,0,0,0,0]};
+  });
   const realMap={};
   REAL.forEach(l=>{
     const k=l.atv+'|'+l.rub;
     if(!realMap[k]) realMap[k]=[];
     realMap[k].push(l);
   });
+  const apMap={};
+  AP.forEach(l=>{const k=l.atv+'|'+l.rub;if(!apMap[k])apMap[k]=[];apMap[k].push(l);});
   const tb=document.getElementById('tb-ativ');
-  let html='',tOP=0,tRP=0,ai=0;
+  let html='',tOP=0,tRP=0,tAP=0,ai=0;
   Object.entries(atvsMap).sort((a,b)=>a[0].localeCompare(b[0],'pt-BR')).forEach(([atv,rubs])=>{
     ai++;
-    let aOP=0,aRP=0;
+    let aOP=0,aRP=0,aAP=0;
     Object.entries(rubs).forEach(([rub,ri])=>{
       aOP+=orcPer(ri.m12);
       aRP+=realPer(realMap[atv+'|'+rub]||[]);
+      aAP+=apPer(apMap[atv+'|'+rub]||[]);
     });
-    const aS=aOP-aRP,aP=aOP>0?(aRP/aOP*100):(aRP>0?999:0);
-    tOP+=aOP;tRP+=aRP;
+    const aS=aOP-aRP-aAP,aP=aOP>0?(aRP/aOP*100):(aRP>0?999:0);
+    const aPP=aOP>0?((aRP+aAP)/aOP*100):((aRP+aAP)>0?999:0);
+    tOP+=aOP;tRP+=aRP;tAP+=aAP;
     html+=`<tr class="tr-pai" id="a${ai}" onclick="togPai('a${ai}')">
       <td><span class="chevron">▶</span>${atv}</td>
-      <td>${fmtR(aOP)}</td><td>${fmtR(aRP)}</td>
+      <td>${fmtR(aOP)}</td><td>${fmtR(aRP)}</td><td>${aAP>0?fmtR(aAP):'—'}</td>
       <td class="${scl(aS)}">${fmtR(aS)}</td>
-      <td>${miniB(aP>900?100:aP)}</td><td>${badge(aP>900?100:aP)}</td>
+      <td>${miniB(aP>900?100:aP)}</td><td>${badge(aPP>900?100:aPP)}</td>
     </tr>`;
     let ri2=0;
     Object.entries(rubs).sort((a,b)=>a[0].localeCompare(b[0],'pt-BR')).forEach(([rub,ri])=>{
       ri2++;
       const rid=`ra${ai}-${ri2}`;
       const lancs=realMap[atv+'|'+rub]||[];
-      const rOP=orcPer(ri.m12),rRP=realPer(lancs);
-      const rS=rOP-rRP,rP=rOP>0?(rRP/rOP*100):(rRP>0?999:0);
+      const apL=apMap[atv+'|'+rub]||[];
+      const apF=apL.filter(l=>l.mes>=mesIni && l.mes<=mesFim);
+      const rOP=orcPer(ri.m12),rRP=realPer(lancs),rAP=apPer(apL);
+      const rS=rOP-rRP-rAP,rP=rOP>0?(rRP/rOP*100):(rRP>0?999:0);
+      const rPP=rOP>0?((rRP+rAP)/rOP*100):((rRP+rAP)>0?999:0);
       const lF=lancs.filter(l=>l.mes>=mesIni && l.mes<=mesFim);
-      const temFilhos=lF.length>0;
+      const temFilhos=lF.length>0||apF.length>0;
       html+=`<tr class="tr-filho${temFilhos?' clicavel':''}" id="${rid}" data-pai="a${ai}" ${temFilhos?`onclick="togFilho('${rid}')"`:''}>
         <td>${rub}</td>
-        <td>${fmtR(rOP)}</td><td>${fmtR(rRP)}</td>
+        <td>${fmtR(rOP)}</td><td>${fmtR(rRP)}</td><td>${rAP>0?fmtR(rAP):'—'}</td>
         <td class="${scl(rS)}">${fmtR(rS)}</td>
-        <td>${miniB(rP>900?100:rP)}</td><td>${badge(rP>900?100:rP)}</td>
+        <td>${miniB(rP>900?100:rP)}</td><td>${badge(rPP>900?100:rPP)}</td>
       </tr>`;
       lF.forEach(l=>{
         const hist=(l.hist||'').replace(/"/g,'&quot;');
@@ -606,14 +707,15 @@ function buildAtiv(){
         const marcado=SELECIONADOS.has(l.id)?'checked':'';
         html+=`<tr class="tr-neto" data-pai="${rid}">
           <td><div class="forn-linha"><input type="checkbox" class="chk-item" data-id="${l.id}" ${marcado} onclick="event.stopPropagation();toggleSelecao('${l.id}',this.checked)"><div class="forn-nome">${nomeHtml}</div></div></td>
-          <td></td><td>${fmtR(l.valor)}</td><td></td>
-          <td><span class="mes-tag">${MESES_NOMES[l.mes-1]}</span></td><td></td>
+          <td></td><td>${fmtR(l.valor)}</td><td></td><td></td>
+          <td></td><td><span class="mes-tag">${MESES_NOMES[l.mes-1]}</span></td>
         </tr>`;
       });
+      apF.forEach(l=>{html+=apNeto(l,rid,'ativ');});
     });
   });
-  const tS=tOP-tRP,tP=tOP>0?(tRP/tOP*100):0;
-  html+=`<tr class="tr-total"><td>Total do período</td><td>${fmtR(tOP)}</td><td>${fmtR(tRP)}</td><td class="${scl(tS)}">${fmtR(tS)}</td><td>${miniB(tP)}</td><td></td></tr>`;
+  const tS=tOP-tRP-tAP,tP=tOP>0?(tRP/tOP*100):0;
+  html+=`<tr class="tr-total"><td>Total do período</td><td>${fmtR(tOP)}</td><td>${fmtR(tRP)}</td><td>${fmtR(tAP)}</td><td class="${scl(tS)}">${fmtR(tS)}</td><td>${miniB(tP)}</td><td></td></tr>`;
   tb.innerHTML=html;
 }
 
@@ -629,27 +731,34 @@ function buildRub(){
     if(!realPorRub[l.rub]) realPorRub[l.rub]=[];
     realPorRub[l.rub].push(l);
   });
+  const apPorRub={};
+  AP.forEach(l=>{if(!apPorRub[l.rub])apPorRub[l.rub]=[];apPorRub[l.rub].push(l);});
   const rubsOrdem=[...new Set(ORC.map(r=>r[1]))];
   REAL.forEach(l=>{ if(l.rub && !rubsOrdem.includes(l.rub)) rubsOrdem.push(l.rub); });
+  AP.forEach(l=>{ if(l.rub && !rubsOrdem.includes(l.rub)) rubsOrdem.push(l.rub); });
   rubsOrdem.sort((a,b)=>a.localeCompare(b,'pt-BR'));
   const tb=document.getElementById('tb-rub');
-  let html='',tOP=0,tRP=0,ri=0;
+  let html='',tOP=0,tRP=0,tAP=0,ri=0;
   rubsOrdem.forEach(rub=>{
     const r=rubMap[rub];
     const lancs=realPorRub[rub]||[];
+    const apL=apPorRub[rub]||[];
     const rOP=r?orcPer(r.m12):0;
     const rRP=realPer(lancs);
-    if(rOP===0 && rRP===0) return;
+    const rAP=apPer(apL);
+    if(rOP===0 && rRP===0 && rAP===0) return;
     ri++;
     const pid=`rg${ri}`;
-    const rS=rOP-rRP,rP=rOP>0?(rRP/rOP*100):(rRP>0?999:0);
+    const rS=rOP-rRP-rAP,rP=rOP>0?(rRP/rOP*100):(rRP>0?999:0);
+    const rPP=rOP>0?((rRP+rAP)/rOP*100):((rRP+rAP)>0?999:0);
     const lF=lancs.filter(l=>l.mes>=mesIni && l.mes<=mesFim);
-    tOP+=rOP;tRP+=rRP;
+    const apF=apL.filter(l=>l.mes>=mesIni && l.mes<=mesFim);
+    tOP+=rOP;tRP+=rRP;tAP+=rAP;
     html+=`<tr class="tr-pai" id="${pid}" onclick="togPai('${pid}')">
       <td><span class="chevron">▶</span>${rub}</td>
-      <td>${fmtR(rOP)}</td><td>${fmtR(rRP)}</td>
+      <td>${fmtR(rOP)}</td><td>${fmtR(rRP)}</td><td>${rAP>0?fmtR(rAP):'—'}</td>
       <td class="${scl(rS)}">${fmtR(rS)}</td>
-      <td>${miniB(rP>900?100:rP)}</td><td>${badge(rP>900?100:rP)}</td>
+      <td>${miniB(rP>900?100:rP)}</td><td>${badge(rPP>900?100:rPP)}</td>
     </tr>`;
     lF.forEach(l=>{
       const hist=(l.hist||'').replace(/"/g,'&quot;');
@@ -659,14 +768,40 @@ function buildRub(){
       const marcado=SELECIONADOS.has(l.id)?'checked':'';
       html+=`<tr class="tr-filho vis" data-pai="${pid}">
         <td><div class="forn-linha"><input type="checkbox" class="chk-item" data-id="${l.id}" ${marcado} onclick="event.stopPropagation();toggleSelecao('${l.id}',this.checked)"><div><div class="forn-nome">${nomeHtml}</div><div style="font-size:11px;color:var(--ct)">${l.atv}</div></div></div></td>
-        <td></td><td>${fmtR(l.valor)}</td><td></td>
-        <td><span class="mes-tag">${MESES_NOMES[l.mes-1]}</span></td><td></td>
+        <td></td><td>${fmtR(l.valor)}</td><td></td><td></td>
+        <td></td><td><span class="mes-tag">${MESES_NOMES[l.mes-1]}</span></td>
       </tr>`;
     });
+    apF.forEach(l=>{html+=apNeto(l,pid,'rub');});
   });
-  const tS=tOP-tRP,tP=tOP>0?(tRP/tOP*100):0;
-  html+=`<tr class="tr-total"><td>Total do período</td><td>${fmtR(tOP)}</td><td>${fmtR(tRP)}</td><td class="${scl(tS)}">${fmtR(tS)}</td><td>${miniB(tP)}</td><td></td></tr>`;
+  const tS=tOP-tRP-tAP,tP=tOP>0?(tRP/tOP*100):0;
+  html+=`<tr class="tr-total"><td>Total do período</td><td>${fmtR(tOP)}</td><td>${fmtR(tRP)}</td><td>${fmtR(tAP)}</td><td class="${scl(tS)}">${fmtR(tS)}</td><td>${miniB(tP)}</td><td></td></tr>`;
   tb.innerHTML=html;
+}
+
+function build27(){
+  const el=document.getElementById('a27-conteudo');
+  if(!A27.length){el.innerHTML='<div class="td-vazio" style="padding:1rem">Nenhum compromisso para 2027 ou depois lançado no Ongsys para esta área.</div>';return;}
+  const tot=A27.reduce((a,l)=>a+l.valor,0);
+  const porMes={};A27.forEach(l=>{porMes[l.ym]=(porMes[l.ym]||0)+l.valor;});
+  const meses=Object.keys(porMes).sort();
+  const nomeMes=ym=>{const [y,m]=ym.split('-');return MESES_NOMES[parseInt(m)-1]+'/'+y;};
+  let html=`<div class="dest-grid"><div class="dest-card"><div class="dest-card-label">Total já lançado para 2027+</div><div class="dest-card-valor">${fmtR(tot)}</div><div class="dest-card-sub">${A27.length} parcelas · de ${nomeMes(meses[0])} a ${nomeMes(meses[meses.length-1])}</div></div></div>`;
+  html+='<div class="mes27-grid">'+meses.map(m=>`<div class="mes27-card"><div class="l">${nomeMes(m)}</div><div class="v">${fmtR(porMes[m])}</div></div>`).join('')+'</div>';
+  const porAtv={};A27.forEach(l=>{const k=l.atv||'(sem atividade)';if(!porAtv[k])porAtv[k]=[];porAtv[k].push(l);});
+  let rows='',i=0;
+  Object.entries(porAtv).sort((a,b)=>a[0].localeCompare(b[0],'pt-BR')).forEach(([atv,itens])=>{
+    i++;const id='q'+i;
+    rows+=`<tr class="tr-pai" id="${id}" onclick="togPai('${id}')"><td><span class="chevron">▶</span>${atv}</td><td>${fmtR(itens.reduce((a,l)=>a+l.valor,0))}</td><td>${itens.length}</td></tr>`;
+    itens.sort((a,b)=>a.venc.localeCompare(b.venc)).forEach(l=>{
+      const hist=(l.hist||'').replace(/"/g,'&quot;');
+      const nomeHtml=hist?`<span class="tt-hist" data-hist="${hist}"><span class="tt-icon">i</span>${l.forn}</span>`:l.forn;
+      rows+=`<tr class="tr-filho" data-pai="${id}"><td><div class="forn-nome">${nomeHtml}</div><div style="font-size:11px;color:var(--ct)">${l.rub||''}</div></td><td>${fmtR(l.valor)}</td><td><span class="mes-tag">venc. ${fmtData(l.venc)}</span></td></tr>`;
+    });
+  });
+  rows+=`<tr class="tr-total"><td>Total</td><td>${fmtR(tot)}</td><td>${A27.length}</td></tr>`;
+  html+=`<div class="tabela-wrap"><table><thead><tr><th style="width:55%">Atividade / Fornecedor</th><th>Valor lançado</th><th>Parcelas / Vencimento</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  el.innerHTML=html;
 }
 
 function togPai(id){
@@ -744,6 +879,8 @@ function marcarBotaoAtivo(){
   document.querySelectorAll('.mes-btn').forEach(b=>b.classList.remove('ativo'));
   if(mesIni===1 && mesFim===MES_MAX_DADOS){
     document.getElementById('btn-acumulado').classList.add('ativo');
+  } else if(mesIni===1 && mesFim===12 && document.getElementById('btn-ano')){
+    document.getElementById('btn-ano').classList.add('ativo');
   } else if(mesIni===mesFim){
     const btn=document.getElementById('btn-mes-'+(mesIni-1));
     if(btn) btn.classList.add('ativo');
@@ -754,21 +891,28 @@ function selAcumulado(){
   document.getElementById('sel-de').value=mesIni;
   document.getElementById('sel-ate').value=mesFim;
   marcarBotaoAtivo();
-  atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();
+  renderTudo();
+}
+function selAno(){
+  mesIni=1; mesFim=12;
+  document.getElementById('sel-de').value=1;
+  document.getElementById('sel-ate').value=12;
+  marcarBotaoAtivo();
+  renderTudo();
 }
 function selMesUnico(m){
   mesIni=m; mesFim=m;
   document.getElementById('sel-de').value=m;
   document.getElementById('sel-ate').value=m;
   marcarBotaoAtivo();
-  atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();
+  renderTudo();
 }
 function aplicarIntervalo(){
   const de=parseInt(document.getElementById('sel-de').value);
   const ate=parseInt(document.getElementById('sel-ate').value);
   mesIni=Math.min(de,ate); mesFim=Math.max(de,ate);
   marcarBotaoAtivo();
-  atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();
+  renderTudo();
 }
 
 function mostraAba(id,btn){
@@ -779,6 +923,6 @@ function mostraAba(id,btn){
 }
 
 marcarBotaoAtivo();
-atualizaCards();buildAtiv();buildRub();buildDestaques();buildRanking();
+renderTudo();
 </script>
 </body></html>
